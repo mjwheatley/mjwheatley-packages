@@ -1,0 +1,21 @@
+{
+  "name": "package-one",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/package-one/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/esbuild:esbuild",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/package-one",
+        "main": "packages/package-one/src/index.ts",
+        "tsConfig": "packages/package-one/tsconfig.lib.json",
+        "assets": ["packages/package-one/*.md"],
+        "generatePackageJson": true,
+        "format": ["cjs"]
+      }
+    }
+  }
+}
