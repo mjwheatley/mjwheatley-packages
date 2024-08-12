@@ -2,15 +2,17 @@
   "name": "@mjwheatley/nx-monorepo",
   "version": "0.0.0",
   "license": "MIT",
+  "private": true,
+  "prettier": "@mjwheatley/prettier-config",
   "scripts": {
     "format": "prettier --write .",
     "spellcheck": "cspell --no-progress \"./{.github,packages}/**/*.{md,js,mjs,cjs,ts,mts,cts,tsx,json,yml}\" \"./*.{md,js,mjs,cjs,ts,mts,cts,tsx,json}\""
   },
-  "private": true,
   "devDependencies": {
     "@commitlint/config-conventional": "^19.2.2",
     "@mjwheatley/commitlint-config": "workspace:*",
     "@mjwheatley/cspell-dictionary": "workspace:*",
+    "@mjwheatley/prettier-config": "workspace:*",
     "@nx/esbuild": "19.5.7",
     "@nx/eslint": "19.5.7",
     "@nx/eslint-plugin": "19.5.7",
@@ -44,6 +46,5 @@
   "packageManager": "pnpm@9.6.0+sha256.dae0f7e822c56b20979bb5965e3b73b8bdabb6b8b8ef121da6d857508599ca35",
   "nx": {
     "includedScripts": []
-  },
-  "dependencies": {}
+  }
 }
