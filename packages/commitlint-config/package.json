@@ -1,0 +1,30 @@
+{
+  "name": "@mjwheatley/commitlint-config",
+  "version": "0.0.1",
+  "description": "Shareable commitlint config enforcing conventional commits",
+  "type": "commonjs",
+  "main": "./index.cjs",
+  "module": "./index.js",
+  "types": "./packages/commitlint-config/src/index.d.ts",
+  "files": [
+    "dist/"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mjwheatley/nx-monorepo.git",
+    "directory": "packages/commitlint-config"
+  },
+  "keywords": [
+    "conventional-changelog",
+    "commitlint",
+    "commitlint-config"
+  ],
+  "devDependencies": {
+    "@commitlint/types": "^19.0.3"
+  },
+  "peerDependencies": {
+    "@commitlint/config-conventional": ">=19.2.2",
+    "commitlint": ">=19.4.0"
+  }
+}

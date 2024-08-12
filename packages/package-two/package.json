@@ -2,7 +2,9 @@
   "name": "@mjwheatley/package-two",
   "version": "0.0.1",
   "dependencies": {},
-  "type": "commonjs",
+  "type": "module",
   "main": "./index.cjs",
+  "module": "./index.js",
+  "types": "./packages/package-two/src/index.d.ts",
   "private": true
 }

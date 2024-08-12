@@ -4,5 +4,7 @@
   "dependencies": {},
   "type": "commonjs",
   "main": "./index.cjs",
+  "module": "./index.js",
+  "types": "./packages/package-one/src/index.d.ts",
   "private": true
 }

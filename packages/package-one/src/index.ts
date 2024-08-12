@@ -1,1 +1,1 @@
-export * from './lib/package-one';
+export * from './lib/package-one.js';

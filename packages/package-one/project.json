@@ -13,8 +13,7 @@
         "main": "packages/package-one/src/index.ts",
         "tsConfig": "packages/package-one/tsconfig.lib.json",
         "assets": ["packages/package-one/*.md"],
-        "generatePackageJson": true,
-        "format": ["cjs"]
+        "format": ["cjs", "esm"]
       }
     }
   }

@@ -7,7 +7,7 @@
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "importHelpers": true,
+    "importHelpers": false,
     "target": "es2015",
     "module": "esnext",
     "lib": ["es2020", "dom"],
@@ -15,6 +15,9 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@mjwheatley/commitlint-config": [
+        "packages/commitlint-config/src/index.ts"
+      ],
       "@mjwheatley/package-one": ["packages/package-one/src/index.ts"],
       "@mjwheatley/package-two": ["packages/package-two/src/index.ts"]
     }
