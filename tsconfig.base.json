@@ -23,7 +23,7 @@
       ],
       "@mjwheatley/package-one": ["packages/package-one/src/index.ts"],
       "@mjwheatley/package-two": ["packages/package-two/src/index.ts"],
-      "@mjwheatley/prettier-config": ["packages/prettier-cofig/src/index.ts"]
+      "@mjwheatley/prettier-config": ["packages/prettier-config/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

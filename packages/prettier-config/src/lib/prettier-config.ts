@@ -8,11 +8,11 @@ export const prettierConfig = {
   useTabs: false,
   semi: true,
   singleQuote: true,
-  trailingComma: 'all',
+  trailingComma: "all",
   bracketSameLine: false,
   bracketSpacing: true,
-  arrowParens: 'always',
+  arrowParens: "always",
   requirePragma: false,
   insertPragma: false,
-  proseWrap: 'never',
-}
+  proseWrap: "never",
+};

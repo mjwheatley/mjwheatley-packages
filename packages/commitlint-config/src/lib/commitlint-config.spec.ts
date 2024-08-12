@@ -1,26 +1,26 @@
-import { commitlintConfig } from './commitlint-config';
+import { commitlintConfig } from "./commitlint-config";
 
-describe('commitlintConfig', () => {
-  it('should extend @commitlint/config-conventional and declare rules', () => {
+describe("commitlintConfig", () => {
+  it("should extend @commitlint/config-conventional and declare rules", () => {
     expect(commitlintConfig).toEqual(
       expect.objectContaining({
-        extends: ['@commitlint/config-conventional'],
+        extends: ["@commitlint/config-conventional"],
         rules: expect.objectContaining({
-          'type-enum': [
+          "type-enum": [
             2,
-            'always',
+            "always",
             [
-              'feat',
-              'fix',
-              'docs',
-              'style',
-              'refactor',
-              'perf',
-              'test',
-              'build',
-              'ci',
-              'chore',
-              'revert',
+              "feat",
+              "fix",
+              "docs",
+              "style",
+              "refactor",
+              "perf",
+              "test",
+              "build",
+              "ci",
+              "chore",
+              "revert",
             ],
           ],
         }),

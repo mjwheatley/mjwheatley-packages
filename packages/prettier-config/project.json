@@ -1,7 +1,7 @@
 {
-  "name": "prettier-cofig",
+  "name": "prettier-config",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "packages/prettier-cofig/src",
+  "sourceRoot": "packages/prettier-config/src",
   "projectType": "library",
   "release": {
     "version": {
@@ -17,10 +17,10 @@
       "executor": "@nx/esbuild:esbuild",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/packages/prettier-cofig",
-        "main": "packages/prettier-cofig/src/index.ts",
-        "tsConfig": "packages/prettier-cofig/tsconfig.lib.json",
-        "assets": ["packages/prettier-cofig/*.md"],
+        "outputPath": "dist/packages/prettier-config",
+        "main": "packages/prettier-config/src/index.ts",
+        "tsConfig": "packages/prettier-config/tsconfig.lib.json",
+        "assets": ["packages/prettier-config/*.md"],
         "format": ["cjs", "esm"]
       }
     },

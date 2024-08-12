@@ -17,6 +17,9 @@ importers:
       '@mjwheatley/cspell-dictionary':
         specifier: workspace:*
         version: link:packages/cspell-dictionary
+      '@mjwheatley/prettier-config':
+        specifier: file:./dist/packages/prettier-config
+        version: file:dist/packages/prettier-config(prettier@2.8.8)
       '@nx/esbuild':
         specifier: 19.5.7
         version: 19.5.7(@babel/traverse@7.25.3)(@swc-node/register@1.9.2(@swc/core@1.5.29(@swc/helpers@0.5.12))(@swc/types@0.1.12)(typescript@5.5.4))(@swc/core@1.5.29(@swc/helpers@0.5.12))(@types/node@18.16.9)(esbuild@0.19.12)(nx@19.5.7(@swc-node/register@1.9.2(@swc/core@1.5.29(@swc/helpers@0.5.12))(@swc/types@0.1.12)(typescript@5.5.4))(@swc/core@1.5.29(@swc/helpers@0.5.12)))(typescript@5.5.4)(verdaccio@5.32.1(typanion@3.14.0))
@@ -128,7 +131,7 @@ importers:
 
   packages/package-two: {}
 
-  packages/prettier-cofig:
+  packages/prettier-config:
     dependencies:
       prettier:
         specifier: '>=2.4.0'
@@ -1379,6 +1382,11 @@ packages:
 
   '@jridgewell/trace-mapping@0.3.9':
     resolution: {integrity: sha512-3Belt6tdc8bPgAtbcmdtNJlirVoTmEb5e2gC94PnkwEW9jI6CAHUeoG85tjWP5WquqfavoMtMwiG4P926ZKKuQ==}
+
+  '@mjwheatley/prettier-config@file:dist/packages/prettier-config':
+    resolution: {directory: dist/packages/prettier-config, type: directory}
+    peerDependencies:
+      prettier: '>=2.4.0'
 
   '@napi-rs/wasm-runtime@0.2.4':
     resolution: {integrity: sha512-9zESzOO5aDByvhIAsOy9TbpZ0Ur2AJbUI7UT73kcUTS2mxAMHOBaa1st/jAymNoCtvrit99kkzT1FZuXVcgfIQ==}
@@ -5984,6 +5992,10 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.0
 
+  '@mjwheatley/prettier-config@file:dist/packages/prettier-config(prettier@2.8.8)':
+    dependencies:
+      prettier: 2.8.8
+
   '@napi-rs/wasm-runtime@0.2.4':
     dependencies:
       '@emnapi/core': 1.2.0
@@ -6037,6 +6049,21 @@ snapshots:
       - debug
       - eslint
       - eslint-config-prettier
+      - nx
+      - supports-color
+      - typescript
+      - verdaccio
+
+  '@nrwl/js@19.5.7(@babel/traverse@7.25.3)(@swc-node/register@1.9.2(@swc/core@1.5.29(@swc/helpers@0.5.12))(@swc/types@0.1.12)(typescript@5.5.4))(@swc/core@1.5.29(@swc/helpers@0.5.12))(@types/node@18.16.9)(nx@19.5.7(@swc-node/register@1.9.2(@swc/core@1.5.29(@swc/helpers@0.5.12))(@swc/types@0.1.12)(typescript@5.5.4))(@swc/core@1.5.29(@swc/helpers@0.5.12)))(typescript@5.4.5)(verdaccio@5.32.1(typanion@3.14.0))':
+    dependencies:
+      '@nx/js': 19.5.7(@babel/traverse@7.25.3)(@swc-node/register@1.9.2(@swc/core@1.5.29(@swc/helpers@0.5.12))(@swc/types@0.1.12)(typescript@5.5.4))(@swc/core@1.5.29(@swc/helpers@0.5.12))(@types/node@18.16.9)(nx@19.5.7(@swc-node/register@1.9.2(@swc/core@1.5.29(@swc/helpers@0.5.12))(@swc/types@0.1.12)(typescript@5.5.4))(@swc/core@1.5.29(@swc/helpers@0.5.12)))(typescript@5.4.5)(verdaccio@5.32.1(typanion@3.14.0))
+    transitivePeerDependencies:
+      - '@babel/traverse'
+      - '@swc-node/register'
+      - '@swc/core'
+      - '@swc/wasm'
+      - '@types/node'
+      - debug
       - nx
       - supports-color
       - typescript
@@ -6202,7 +6229,7 @@ snapshots:
       '@babel/preset-env': 7.25.3(@babel/core@7.25.2)
       '@babel/preset-typescript': 7.24.7(@babel/core@7.25.2)
       '@babel/runtime': 7.25.0
-      '@nrwl/js': 19.5.7(@babel/traverse@7.25.3)(@swc-node/register@1.9.2(@swc/core@1.5.29(@swc/helpers@0.5.12))(@swc/types@0.1.12)(typescript@5.5.4))(@swc/core@1.5.29(@swc/helpers@0.5.12))(@types/node@18.16.9)(nx@19.5.7(@swc-node/register@1.9.2(@swc/core@1.5.29(@swc/helpers@0.5.12))(@swc/types@0.1.12)(typescript@5.5.4))(@swc/core@1.5.29(@swc/helpers@0.5.12)))(typescript@5.5.4)(verdaccio@5.32.1(typanion@3.14.0))
+      '@nrwl/js': 19.5.7(@babel/traverse@7.25.3)(@swc-node/register@1.9.2(@swc/core@1.5.29(@swc/helpers@0.5.12))(@swc/types@0.1.12)(typescript@5.5.4))(@swc/core@1.5.29(@swc/helpers@0.5.12))(@types/node@18.16.9)(nx@19.5.7(@swc-node/register@1.9.2(@swc/core@1.5.29(@swc/helpers@0.5.12))(@swc/types@0.1.12)(typescript@5.5.4))(@swc/core@1.5.29(@swc/helpers@0.5.12)))(typescript@5.4.5)(verdaccio@5.32.1(typanion@3.14.0))
       '@nx/devkit': 19.5.7(nx@19.5.7(@swc-node/register@1.9.2(@swc/core@1.5.29(@swc/helpers@0.5.12))(@swc/types@0.1.12)(typescript@5.5.4))(@swc/core@1.5.29(@swc/helpers@0.5.12)))
       '@nx/workspace': 19.5.7(@swc-node/register@1.9.2(@swc/core@1.5.29(@swc/helpers@0.5.12))(@swc/types@0.1.12)(typescript@5.5.4))(@swc/core@1.5.29(@swc/helpers@0.5.12))
       babel-plugin-const-enum: 1.2.0(@babel/core@7.25.2)
