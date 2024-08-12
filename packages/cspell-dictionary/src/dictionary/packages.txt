@@ -1,4 +1,7 @@
 commitlint
 conventionalcommits
+davelosert
 nrwl
 nxrelease
+vite
+vitest
