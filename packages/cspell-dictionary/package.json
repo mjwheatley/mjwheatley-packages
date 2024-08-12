@@ -4,8 +4,6 @@
   "dependencies": {},
   "type": "commonjs",
   "main": "./src/main.json",
-  "module": "./index.js",
-  "types": "./packages/cspell-dictionary/src/index.d.ts",
   "license": "MIT",
   "repository": {
     "type": "git",

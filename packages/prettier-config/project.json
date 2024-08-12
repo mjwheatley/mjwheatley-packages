@@ -13,20 +13,9 @@
   },
   "tags": [],
   "targets": {
-    "build": {
-      "executor": "@nx/esbuild:esbuild",
-      "outputs": ["{options.outputPath}"],
-      "options": {
-        "outputPath": "dist/packages/prettier-config",
-        "main": "packages/prettier-config/src/index.ts",
-        "tsConfig": "packages/prettier-config/tsconfig.lib.json",
-        "assets": ["packages/prettier-config/*.md"],
-        "format": ["cjs", "esm"]
-      }
-    },
     "nx-release-publish": {
       "options": {
-        "packageRoot": "dist/{projectRoot}"
+        "packageRoot": "{projectRoot}"
       }
     }
   }

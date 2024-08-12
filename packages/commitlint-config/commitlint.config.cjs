@@ -1,10 +1,14 @@
-import { UserConfig } from "@commitlint/types";
-
-export const commitlintConfig: UserConfig = {
+module.exports = {
   extends: ["@commitlint/config-conventional"],
+  plugins: ["commitlint-plugin-cspell"],
   rules: {
+    "cspell/type": [2, "always"],
+    "cspell/scope": [2, "always"],
+    "cspell/subject": [2, "always"],
+    "cspell/body": [2, "always"],
+    "cspell/footer": [2, "always"],
     // This ensures that the scope is always present and follows the correct format.
-    "scope-case": [2, "always", "lower-case"],
+    "scope-case": [2, "always", ["lower-case", "upper-case"]],
     // This ensures that the subject is not empty and starts with a lowercase letter.
     "subject-empty": [2, "never"],
     "subject-case": [
@@ -32,8 +36,5 @@ export const commitlintConfig: UserConfig = {
         "revert", // Reverts a previous commit
       ],
     ],
-    // Custom rule to enforce the presence of a scope.
-    // Scope should be the application name such as crm-bridge, documents-api, etc.
-    "scope-empty": [2, "never"],
   },
 };

@@ -1,18 +1,20 @@
+'use strict';
+
 /**
  * @see https://prettier.io/docs/en/configuration.html
  * @type {import("prettier").Config}
  */
-export const prettierConfig = {
+module.exports = {
   printWidth: 120,
   tabWidth: 2,
   useTabs: false,
   semi: true,
   singleQuote: true,
-  trailingComma: "all",
+  trailingComma: 'all',
   bracketSameLine: false,
   bracketSpacing: true,
-  arrowParens: "always",
+  arrowParens: 'always',
   requirePragma: false,
   insertPragma: false,
-  proseWrap: "never",
+  proseWrap: 'never',
 };

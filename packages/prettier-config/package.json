@@ -2,9 +2,7 @@
   "name": "@mjwheatley/prettier-config",
   "version": "0.0.1",
   "type": "commonjs",
-  "main": "./index.cjs",
-  "module": "./index.js",
-  "types": "./packages/prettier-config/src/index.d.ts",
+  "main": "./prettier.config.cjs",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -13,6 +11,9 @@
   },
   "keywords": [
     "prettier"
+  ],
+  "files": [
+    "prettier.config.cjs"
   ],
   "peerDependencies": {
     "prettier": ">=2.4.0"

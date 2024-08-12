@@ -13,24 +13,9 @@
   },
   "tags": [],
   "targets": {
-    "build": {
-      "executor": "@nx/esbuild:esbuild",
-      "outputs": ["{options.outputPath}"],
-      "options": {
-        "outputPath": "dist/packages/cspell-dictionary",
-        "main": "packages/cspell-dictionary/src/index.ts",
-        "tsConfig": "packages/cspell-dictionary/tsconfig.lib.json",
-        "assets": [
-          "packages/cspell-dictionary/*.md",
-          "packages/cspell-dictionary/src/main.json",
-          "packages/cspell-dictionary/src/dictionary/*.txt"
-        ],
-        "format": ["cjs", "esm"]
-      }
-    },
     "nx-release-publish": {
       "options": {
-        "packageRoot": "dist/{projectRoot}"
+        "packageRoot": "{projectRoot}"
       }
     }
   }
