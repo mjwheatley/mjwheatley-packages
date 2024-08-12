@@ -21,5 +21,5 @@ Run `nx test cspell-dictionary` to execute the unit tests via [Vitest](https://v
 | people.txt            | People's names                                  |
 | places.txt            | Any place, such as a city, state, or country    |
 | programming-terms.txt | Programming terms                               |
-| things.txt            | Other things that might not fit elsewhere       |                    |
+| things.txt            | Other things that might not fit elsewhere       |
 | usernames.txt         | Usernames                                       |

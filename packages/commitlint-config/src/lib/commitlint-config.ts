@@ -7,7 +7,11 @@ export const commitlintConfig: UserConfig = {
     'scope-case': [2, 'always', 'lower-case'],
     // This ensures that the subject is not empty and starts with a lowercase letter.
     'subject-empty': [2, 'never'],
-    'subject-case': [2, 'never', ['sentence-case', 'start-case', 'pascal-case', 'upper-case']],
+    'subject-case': [
+      2,
+      'never',
+      ['sentence-case', 'start-case', 'pascal-case', 'upper-case'],
+    ],
     // This rule ensures that the type is one of the conventional commit types and is in lower-case.
     'type-case': [2, 'always', 'lower-case'],
     'type-empty': [2, 'never'],
