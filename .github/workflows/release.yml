@@ -45,4 +45,4 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           NPM_CONFIG_PROVENANCE: ${{ secrets.NPM_TOKEN && 'true' || 'false' }}
-        run: npx --no nx run-many -t semantic-release -p affected
+        run: npx --no nx run-many -t semantic-release -p

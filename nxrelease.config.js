@@ -1,5 +1,5 @@
-import { readFileSync } from "node:fs";
-import { join } from "node:path";
+const { readFileSync } = require("node:fs");
+const { join } = require("node:path");
 
 const finalizeContext = (context) => {
   for (const commitGroup of context.commitGroups) {
@@ -12,7 +12,8 @@ const finalizeContext = (context) => {
   return context;
 };
 
-export default {
+module.exports = {
+  dryRun: true,
   repositoryUrl: "https://github.com/mjwheatley/nx-monorepo",
   github: true,
   changelog: false,
@@ -67,25 +68,12 @@ export default {
           ],
         },
         writerOpts: {
-          commitPartial: readFileSync(
-            join(import.meta.dirname, "commit.hbs"),
-            "utf-8"
-          ),
+          commitPartial: readFileSync(join(__dirname, "commit.hbs"), "utf-8"),
           finalizeContext,
         },
       },
     ],
     "@semantic-release/npm",
-    [
-      "@semantic-release-plus/docker",
-      {
-        name: {
-          registry: process.env.ECR_REPOSITORY_URL.split("/")[0],
-          repository: process.env.ECR_REPOSITORY_URL.split("/")[1],
-        },
-        skipLogin: true,
-      },
-    ],
     "@semantic-release/github",
   ],
 };
