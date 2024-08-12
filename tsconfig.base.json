@@ -18,6 +18,9 @@
       "@mjwheatley/commitlint-config": [
         "packages/commitlint-config/src/index.ts"
       ],
+      "@mjwheatley/cspell-dictionary": [
+        "packages/cspell-dictionary/src/index.ts"
+      ],
       "@mjwheatley/package-one": ["packages/package-one/src/index.ts"],
       "@mjwheatley/package-two": ["packages/package-two/src/index.ts"]
     }

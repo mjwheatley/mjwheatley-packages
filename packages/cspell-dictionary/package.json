@@ -1,0 +1,27 @@
+{
+  "name": "@mjwheatley/cspell-dictionary",
+  "version": "0.0.1",
+  "dependencies": {},
+  "type": "commonjs",
+  "main": "./src/main.json",
+  "module": "./index.js",
+  "types": "./packages/cspell-dictionary/src/index.d.ts",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mjwheatley/nx-monorepo.git",
+    "directory": "packages/cspell-dictionary"
+  },
+  "keywords": [
+    "cspell",
+    "dictionary"
+  ],
+  "peerDependencies": {
+    "cspell": ">=8"
+  },
+  "peerDependenciesMeta": {
+    "cspell": {
+      "optional": true
+    }
+  }
+}
