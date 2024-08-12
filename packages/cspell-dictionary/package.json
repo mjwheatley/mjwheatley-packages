@@ -14,6 +14,9 @@
     "cspell",
     "dictionary"
   ],
+  "files": [
+    "src"
+  ],
   "peerDependencies": {
     "cspell": ">=8"
   },
