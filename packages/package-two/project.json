@@ -15,6 +15,9 @@
         "assets": ["packages/package-two/*.md"],
         "format": ["cjs", "esm"]
       }
+    },
+    "semantic-release": {
+      "executor": "@theunderscorer/nx-semantic-release:semantic-release"
     }
   }
 }

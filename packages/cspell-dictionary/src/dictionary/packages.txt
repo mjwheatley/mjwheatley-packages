@@ -1,2 +1,4 @@
-nrwl
 commitlint
+conventionalcommits
+nrwl
+nxrelease
