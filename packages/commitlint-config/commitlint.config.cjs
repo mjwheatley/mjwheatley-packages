@@ -7,6 +7,8 @@ module.exports = {
     "cspell/subject": [2, "always"],
     "cspell/body": [2, "always"],
     "cspell/footer": [2, "always"],
+    "header-max-length": [2, "always", 100],
+    "body-max-line-length": [2, "always", 250],
     // This ensures that the scope is always present and follows the correct format.
     "scope-case": [2, "always", ["lower-case", "upper-case"]],
     // This ensures that the subject is not empty and starts with a lowercase letter.
