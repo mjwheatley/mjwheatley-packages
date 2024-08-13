@@ -9,7 +9,7 @@
       "executor": "@nx/esbuild:esbuild",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "packages/package-one",
+        "outputPath": "packages/package-one/dist",
         "main": "packages/package-one/src/index.ts",
         "tsConfig": "packages/package-one/tsconfig.lib.json",
         "assets": ["packages/package-one/*.md"],

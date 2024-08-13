@@ -4,14 +4,12 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "build": "nx run-many -t build -p",
-    "build:affected": "nx run-many -t build -p affected",
+    "build": "nx run-many -t build --all",
     "format": "prettier --write .",
     "prepare": "husky || true",
     "secretlint": "secretlint .  --maskSecrets",
     "spellcheck": "cspell --no-progress \"./{.github,packages}/**/*.{md,js,mjs,cjs,ts,mts,cts,tsx,json,yml}\" \"./*.{md,js,mjs,cjs,ts,mts,cts,tsx,json}\"",
-    "test": "vitest --coverage --run",
-    "test:affected": "nx run-many -t test -p affected"
+    "test": "vitest --coverage --run"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.4.0",

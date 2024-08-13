@@ -3,13 +3,16 @@
   "version": "0.0.0-semantic-release",
   "dependencies": {},
   "type": "commonjs",
-  "main": "./index.cjs",
-  "module": "./index.js",
-  "types": "./packages/package-one/src/index.d.ts",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/packages/package-one/src/index.d.ts",
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mjwheatley/nx-monorepo.git",
     "directory": "packages/package-one"
-  }
+  },
+  "files": [
+    "dist"
+  ]
 }
