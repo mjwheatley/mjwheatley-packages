@@ -1,6 +1,6 @@
 {
   "name": "@mjwheatley/cspell-dictionary",
-  "version": "0.0.1",
+  "version": "0.0.0-semantic-release",
   "dependencies": {},
   "type": "commonjs",
   "main": "./src/main.json",
