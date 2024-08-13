@@ -1,0 +1,1 @@
+# @mjwheatley/prettier-config

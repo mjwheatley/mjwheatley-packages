@@ -1,4 +1,4 @@
-# package-one
+# @mjwheatley/package-one
 
 This library was generated with [Nx](https://nx.dev).
 

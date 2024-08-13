@@ -7,7 +7,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/mjwheatley/nx-monorepo.git",
+    "url": "git+https://github.com/mjwheatley/nx-monorepo.git",
     "directory": "packages/cspell-dictionary"
   },
   "keywords": [

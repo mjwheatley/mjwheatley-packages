@@ -6,5 +6,10 @@
   "main": "./index.cjs",
   "module": "./index.js",
   "types": "./packages/package-two/src/index.d.ts",
-  "private": true
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mjwheatley/nx-monorepo.git",
+    "directory": "packages/package-two"
+  }
 }

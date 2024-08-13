@@ -1,4 +1,4 @@
-# cspell-dictionary
+# @mjwheatley/cspell-dictionary
 
 ## Dictionaries
 
