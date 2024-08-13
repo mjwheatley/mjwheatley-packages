@@ -9,11 +9,19 @@
       "executor": "@nx/esbuild:esbuild",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/packages/package-two",
+        "outputPath": "packages/package-two",
         "main": "packages/package-two/src/index.ts",
         "tsConfig": "packages/package-two/tsconfig.lib.json",
         "assets": ["packages/package-two/*.md"],
         "format": ["cjs", "esm"]
+      }
+    },
+    "release": {
+      "executor": "nx:run-commands",
+      "outputs": [],
+      "options": {
+        "command": "npx semantic-release-plus --extends ./packages/commitlint-config/release.config.js",
+        "parallel": false
       }
     }
   }

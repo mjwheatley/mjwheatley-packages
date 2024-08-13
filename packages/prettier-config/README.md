@@ -1,1 +1,1 @@
-# @mjwheatley/prettier-config
+# prettier-config

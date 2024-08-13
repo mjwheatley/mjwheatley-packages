@@ -22,6 +22,10 @@ export default defineConfig({
     coverage: {
       reportsDirectory: '../../coverage/packages/package-two',
       provider: 'v8',
+      enabled: true,
+      reportOnFailure: true,
+      reporter: ['json-summary', 'json', 'html'],
+      include: ['src/**/*'],
     },
   },
 });

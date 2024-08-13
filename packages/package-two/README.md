@@ -1,4 +1,4 @@
-# @mjwheatley/package-two
+# package-two
 
 This library was generated with [Nx](https://nx.dev).
 

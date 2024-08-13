@@ -19,7 +19,8 @@
       "@mjwheatley/cspell-dictionary": ["packages/cspell-dictionary/src/index.ts"],
       "@mjwheatley/package-one": ["packages/package-one/src/index.ts"],
       "@mjwheatley/package-two": ["packages/package-two/src/index.ts"],
-      "@mjwheatley/prettier-config": ["packages/prettier-config/src/index.ts"]
+      "@mjwheatley/prettier-config": ["packages/prettier-config/src/index.ts"],
+      "@mjwheatley/semantic-release-config": ["packages/semantic-release-config/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

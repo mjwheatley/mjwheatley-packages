@@ -1,7 +1,7 @@
 {
-  "name": "cspell-dictionary",
+  "name": "semantic-release-config",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "packages/cspell-dictionary/src",
+  "sourceRoot": "packages/semantic-release-config/src",
   "projectType": "library",
   "release": {
     "version": {
