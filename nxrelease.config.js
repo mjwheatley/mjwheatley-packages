@@ -13,7 +13,6 @@ const finalizeContext = (context) => {
 };
 
 module.exports = {
-  dryRun: true,
   repositoryUrl: "https://github.com/mjwheatley/nx-monorepo",
   github: true,
   changelog: false,
