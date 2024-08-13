@@ -8,5 +8,4 @@ module.exports = {
   commitPaths: [`${srcRoot}/*`],
   branches,
   preset,
-  plugins,
 };
