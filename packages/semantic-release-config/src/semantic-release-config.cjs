@@ -56,11 +56,27 @@ const plugins = [
   '@semantic-release/github',
 ];
 
+const branches = [
+  '+([0-9])?(.{+([0-9]),x}).x',
+  'main',
+  'next',
+  'next-major',
+  {
+    name: 'beta',
+    prerelease: true,
+  },
+  {
+    name: 'alpha',
+    prerelease: true,
+  },
+];
+
 const preset = 'conventionalcommits';
 
 module.exports = {
   commitAnalyzerPlugin,
   releaseNotesGeneratorPlugin,
   plugins,
+  branches,
   preset,
 };
