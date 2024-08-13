@@ -8,7 +8,7 @@
     "build:affected": "nx run-many -t build -p affected",
     "format": "prettier --write .",
     "prepare": "husky || true",
-    "secretlint": "secretlint ./src ./tests  --maskSecrets",
+    "secretlint": "secretlint .  --maskSecrets",
     "spellcheck": "cspell --no-progress \"./{.github,packages}/**/*.{md,js,mjs,cjs,ts,mts,cts,tsx,json,yml}\" \"./*.{md,js,mjs,cjs,ts,mts,cts,tsx,json}\"",
     "test": "nx run-many -t test -p",
     "test:affected": "nx run-many -t test -p affected"
