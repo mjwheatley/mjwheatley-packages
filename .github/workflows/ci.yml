@@ -1,4 +1,4 @@
-name: Pull Request and Release
+name: Pull Requests and Releases
 
 on:
   push:
@@ -21,8 +21,11 @@ permissions:
   id-token: write # to enable use of OIDC for npm provenance
 
 jobs:
-  main:
+  release:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ${{ github.workspace }}
 
     steps:
       - name: Checkout [Pull Request]
