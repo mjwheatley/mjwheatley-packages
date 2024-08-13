@@ -1,4 +1,3 @@
-console.log("loaded commitlint.config.mjs");
 /**
  * @type {import('@commitlint/types').UserConfig}
  */
