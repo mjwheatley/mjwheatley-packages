@@ -7,7 +7,7 @@ on:
       - next
       - beta
       - alpha
-      - "*.x"
+      - '*.x'
 
 permissions:
   packages: write # to be able to publish to GitHub Packages
@@ -30,8 +30,8 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          cache: "pnpm"
-          node-version-file: ".nvmrc"
+          cache: 'pnpm'
+          node-version-file: '.nvmrc'
           registry-url: https://npm.pkg.github.com/
 
       - name: Install dependencies

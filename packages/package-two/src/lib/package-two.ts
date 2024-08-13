@@ -1,3 +1,3 @@
 export function packageTwo(): string {
-  return "package-two";
+  return 'package-two';
 }

@@ -1,11 +1,11 @@
-import mjwheatleyPrettierConfig from "@mjwheatley/prettier-config";
+const prettierConfig = require('@mjwheatley/prettier-config');
 
 /**
  * @see https://prettier.io/docs/en/configuration.html
  * @type {import('prettier').Config}
  */
 const config = {
-  ...mjwheatleyPrettierConfig,
+  ...prettierConfig,
 };
 
-export default config;
+module.exports = config;
