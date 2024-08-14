@@ -15,14 +15,6 @@
         "assets": ["packages/package-two/*.md"],
         "format": ["cjs", "esm"]
       }
-    },
-    "release": {
-      "executor": "nx:run-commands",
-      "outputs": [],
-      "options": {
-        "command": "npx semantic-release-plus --extends ./packages/commitlint-config/release.config.js",
-        "parallel": false
-      }
     }
   }
 }
