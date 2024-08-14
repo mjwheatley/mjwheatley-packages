@@ -42,8 +42,16 @@
     }
   },
   "release": {
+    "projects": ["*"],
+    "releaseTagPattern": "@mjwheatley/{projectName}-v{version}",
     "version": {
+      "conventionalCommits": true,
       "preVersionCommand": "pnpm dlx nx run-many -t build"
+    },
+    "changelog": {
+      "workspaceChangelog": {
+        "createRelease": "github"
+      }
     }
   }
 }

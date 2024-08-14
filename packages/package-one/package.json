@@ -1,6 +1,6 @@
 {
   "name": "@mjwheatley/package-one",
-  "version": "0.0.0-semantic-release",
+  "version": "0.0.0",
   "dependencies": {},
   "type": "commonjs",
   "main": "./dist/index.cjs",

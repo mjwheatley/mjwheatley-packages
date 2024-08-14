@@ -1,6 +1,6 @@
 {
   "name": "@mjwheatley/semantic-release-config",
-  "version": "0.0.0-semantic-release",
+  "version": "0.0.0",
   "description": "Shareable semantic-release config",
   "type": "commonjs",
   "main": "./src/semantic-release-config.cjs",

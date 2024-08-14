@@ -1,6 +1,6 @@
 {
   "name": "@mjwheatley/package-two",
-  "version": "0.0.0-semantic-release",
+  "version": "0.0.0",
   "dependencies": {},
   "type": "module",
   "main": "./dist/index.cjs",
