@@ -42,14 +42,19 @@
     }
   },
   "release": {
-    "projects": ["*"],
+    "projects": ["packages/*"],
     "releaseTagPattern": "@mjwheatley/{projectName}-v{version}",
+    "projectsRelationship": "independent",
     "version": {
       "conventionalCommits": true,
-      "preVersionCommand": "pnpm dlx nx run-many -t build"
+      "preVersionCommand": "pnpm dlx nx run-many -t build",
+      "generatorOptions": {
+        "updateDependents": "auto"
+      }
     },
     "changelog": {
-      "workspaceChangelog": {
+      "projectChangelogs": {
+        "file": false,
         "createRelease": "github"
       }
     }
