@@ -71,7 +71,7 @@ jobs:
         run: pnpm spellcheck
 
       - name: Format
-        run: npx nx format:check
+        run: pnpx nx format:check
 
       - name: Test
         run: pnpm test
@@ -90,7 +90,7 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           NPM_CONFIG_PROVENANCE: ${{ secrets.NPM_TOKEN && 'true' || 'false' }}
-        run: nx release --dry-run
+        run: pnpx nx release --dry-run
 
       - name: Release
         if: ${{ success() && (github.event_name != 'pull_request' || github.event.action == 'closed' && github.event.pull_request.merged == true) }}
@@ -99,4 +99,4 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           NPM_CONFIG_PROVENANCE: ${{ secrets.NPM_TOKEN && 'true' || 'false' }}
-        run: nx release
+        run: pnpx nx release
