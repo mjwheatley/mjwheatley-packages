@@ -10,5 +10,13 @@
         "storage": "tmp/local-registry/storage"
       }
     }
+  },
+  "release": {
+    "version": {
+      "generatorOptions": {
+        "packageRoot": "dist/{projectRoot}",
+        "currentVersionResolver": "git-tag"
+      }
+    }
   }
 }
