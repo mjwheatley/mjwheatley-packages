@@ -4,10 +4,10 @@ export default defineConfig({
   test: {
     coverage: {
       enabled: true,
-      reporter: ['json-summary', 'json', 'html'],
-      include: ['src/**/*'],
-      reportOnFailure: true,
       provider: 'v8',
+      reportOnFailure: true,
+      reporter: ['json-summary', 'json', 'html'],
     },
+    reporters: ['default', 'json'],
   },
 });
