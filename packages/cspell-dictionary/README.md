@@ -1,5 +1,7 @@
 # cspell-dictionary
 
+This package contains dictionaries for the [cspell](https://www.npmjs.com/package/cspell) spell checker.
+
 ## Dictionaries
 
 | Name                  | Description                                     |

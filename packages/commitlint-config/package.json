@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "description": "Shareable commitlint config enforcing conventional commits",
   "type": "commonjs",
-  "main": "./commitlint.config.cjs",
+  "main": "./commitlint-config.cjs",
   "license": "MIT",
   "repository": {
     "type": "git",

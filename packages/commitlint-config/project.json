@@ -6,16 +6,27 @@
   "release": {
     "version": {
       "generatorOptions": {
-        "packageRoot": "{projectRoot}",
+        "packageRoot": "dist/{projectRoot}",
         "currentVersionResolver": "git-tag"
       }
     }
   },
   "tags": [],
   "targets": {
+    "build": {
+      "executor": "@nx/esbuild:esbuild",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/commitlint-config",
+        "main": "packages/commitlint-config/commitlint-config.cjs",
+        "tsConfig": "packages/commitlint-config/tsconfig.lib.json",
+        "assets": ["packages/commitlint-config/*.md"],
+        "format": ["cjs"]
+      }
+    },
     "nx-release-publish": {
       "options": {
-        "packageRoot": "{projectRoot}"
+        "packageRoot": "dist/{projectRoot}"
       }
     }
   }

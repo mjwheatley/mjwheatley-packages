@@ -74,9 +74,10 @@ const branches = [
 const preset = 'conventionalcommits';
 
 module.exports = {
-  commitAnalyzerPlugin,
-  releaseNotesGeneratorPlugin,
-  plugins,
   branches,
+  commitAnalyzerPlugin,
+  finalizeContext,
+  plugins,
   preset,
+  releaseNotesGeneratorPlugin,
 };

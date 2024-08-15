@@ -1,4 +1,5 @@
-import { packageTwo } from './package-two';
+import { describe, expect, it } from 'vitest';
+import { packageTwo } from '../index.js';
 
 describe('packageTwo', () => {
   it('should work', () => {

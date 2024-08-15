@@ -2,7 +2,7 @@
   "name": "@mjwheatley/prettier-config",
   "version": "0.0.0",
   "type": "commonjs",
-  "main": "./prettier.config.cjs",
+  "main": "./prettier-config.cjs",
   "license": "MIT",
   "repository": {
     "type": "git",

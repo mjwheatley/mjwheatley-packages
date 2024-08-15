@@ -116,8 +116,8 @@
       }
     },
     "version": {
-      "conventionalCommits": true,
       "preVersionCommand": "pnpm dlx nx run-many -t build",
+      "conventionalCommits": true,
       "generatorOptions": {
         "updateDependents": "auto"
       }

@@ -6,16 +6,27 @@
   "release": {
     "version": {
       "generatorOptions": {
-        "packageRoot": "{projectRoot}",
+        "packageRoot": "dist/{projectRoot}",
         "currentVersionResolver": "git-tag"
       }
     }
   },
   "tags": [],
   "targets": {
+    "build": {
+      "executor": "@nx/esbuild:esbuild",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/semantic-release-config",
+        "main": "packages/semantic-release-config/semantic-release-config.cjs",
+        "tsConfig": "packages/semantic-release-config/tsconfig.lib.json",
+        "assets": ["packages/semantic-release-config/*.md", "packages/semantic-release-config/commit.hbs"],
+        "format": ["cjs"]
+      }
+    },
     "nx-release-publish": {
       "options": {
-        "packageRoot": "{projectRoot}"
+        "packageRoot": "dist/{projectRoot}"
       }
     }
   }
