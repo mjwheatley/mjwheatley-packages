@@ -1,4 +1,6 @@
 Buildable
 maxage
 npmjs
+npx
+pnpx
 unpublish
