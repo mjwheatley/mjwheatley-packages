@@ -9,3 +9,7 @@ Run `nx build package-two` to build the library.
 ## Running unit tests
 
 Run `nx test package-two` to execute the unit tests via [Vitest](https://vitest.dev/).
+
+### Test Nx Release
+
+<!-- feat -->

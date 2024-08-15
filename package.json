@@ -9,7 +9,7 @@
     "prepare": "husky || true",
     "secretlint": "secretlint .  --maskSecrets",
     "spellcheck": "cspell --no-progress \"./{.github,packages}/**/*.{md,js,mjs,cjs,ts,mts,cts,tsx,json,yml}\" \"./*.{md,js,mjs,cjs,ts,mts,cts,tsx,json}\"",
-    "test": "vitest --coverage --run"
+    "test": "vitest --run"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.4.0",
@@ -46,8 +46,6 @@
     "nx": "19.5.7",
     "prettier": "^2.6.2",
     "secretlint": "^8.2.4",
-    "semantic-release": "^24.0.0",
-    "semantic-release-monorepo": "^8.0.2",
     "tslib": "^2.6.3",
     "typescript": "~5.5.4",
     "verdaccio": "^5.0.4",

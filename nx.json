@@ -42,8 +42,91 @@
     }
   },
   "release": {
+    "projects": ["packages/*"],
+    "releaseTagPattern": "@mjwheatley/{projectName}-v{version}",
+    "projectsRelationship": "independent",
+    "conventionalCommits": {
+      "types": {
+        "build": {
+          "semverBump": "none",
+          "changelog": {
+            "title": "Build System"
+          }
+        },
+        "ci": {
+          "semverBump": "none",
+          "changelog": {
+            "title": "Continuous Integration"
+          }
+        },
+        "chore": {
+          "semverBump": "none",
+          "changelog": {
+            "title": "Miscellaneous Chores"
+          }
+        },
+        "docs": {
+          "semverBump": "patch",
+          "changelog": {
+            "title": "Documentation Updates"
+          }
+        },
+        "feat": {
+          "semverBump": "minor",
+          "changelog": {
+            "title": "New Features"
+          }
+        },
+        "fix": {
+          "semverBump": "patch",
+          "changelog": {
+            "title": "Bug Fixes"
+          }
+        },
+        "perf": {
+          "semverBump": "patch",
+          "changelog": {
+            "title": "Performance Improvements"
+          }
+        },
+        "refactor": {
+          "semverBump": "patch",
+          "changelog": {
+            "title": "Code Refactoring"
+          }
+        },
+        "revert": {
+          "semverBump": "none",
+          "changelog": {
+            "title": "Reverts"
+          }
+        },
+        "style": {
+          "semverBump": "none",
+          "changelog": {
+            "title": "Code Style Changes"
+          }
+        },
+        "test": {
+          "semverBump": "none",
+          "changelog": {
+            "title": "Tests"
+          }
+        }
+      }
+    },
     "version": {
-      "preVersionCommand": "pnpm dlx nx run-many -t build"
+      "conventionalCommits": true,
+      "preVersionCommand": "pnpm dlx nx run-many -t build",
+      "generatorOptions": {
+        "updateDependents": "auto"
+      }
+    },
+    "changelog": {
+      "projectChangelogs": {
+        "file": false,
+        "createRelease": "github"
+      }
     }
   }
 }

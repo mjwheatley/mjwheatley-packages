@@ -1,6 +1,6 @@
 {
   "name": "@mjwheatley/commitlint-config",
-  "version": "0.0.0-semantic-release",
+  "version": "0.0.0",
   "description": "Shareable commitlint config enforcing conventional commits",
   "type": "commonjs",
   "main": "./commitlint.config.cjs",

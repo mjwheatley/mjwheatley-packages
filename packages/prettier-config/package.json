@@ -1,6 +1,6 @@
 {
   "name": "@mjwheatley/prettier-config",
-  "version": "0.0.0-semantic-release",
+  "version": "0.0.0",
   "type": "commonjs",
   "main": "./prettier.config.cjs",
   "license": "MIT",
