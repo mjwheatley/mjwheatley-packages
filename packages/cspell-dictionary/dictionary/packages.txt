@@ -1,6 +1,7 @@
 commitlint
 conventionalcommits
 davelosert
+fregante
 nrwl
 nxrelease
 vite

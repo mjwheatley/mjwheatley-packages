@@ -83,6 +83,9 @@ jobs:
       - name: Build
         run: pnpm build
 
+      - name: Setup Git User
+        uses: fregante/setup-git-user@v2
+
       - name: Release [Dry Run]
         if: ${{ success() && github.event_name == 'pull_request' }}
         env:
