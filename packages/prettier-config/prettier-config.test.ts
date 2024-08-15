@@ -1,5 +1,5 @@
-const { describe, expect, it } = require('vitest');
-const config = require('./prettier-config.cjs');
+import { describe, expect, it } from 'vitest';
+import config = require('./prettier-config.cjs');
 
 describe('prettier-config', () => {
   it('should export a shared config', () => {

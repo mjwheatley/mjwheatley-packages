@@ -18,7 +18,7 @@
       "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/packages/prettier-config",
-        "main": "packages/prettier-config/prettier.config.cjs",
+        "main": "packages/prettier-config/prettier-config.cjs",
         "tsConfig": "packages/prettier-config/tsconfig.lib.json",
         "assets": ["packages/prettier-config/*.md"],
         "format": ["cjs"]

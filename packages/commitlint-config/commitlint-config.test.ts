@@ -1,5 +1,5 @@
-const { describe, expect, it } = require('vitest');
-const commitlintConfig = require('./commitlint-config.cjs');
+import { describe, expect, it } from 'vitest';
+import commitlintConfig = require('./commitlint-config.cjs');
 
 describe('commitlint-config', () => {
   it('should export a sharable commitlint configuration', () => {

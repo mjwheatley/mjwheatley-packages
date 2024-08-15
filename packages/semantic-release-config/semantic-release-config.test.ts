@@ -1,12 +1,12 @@
-const { describe, expect, it } = require('vitest');
-const {
+import { describe, expect, it } from 'vitest';
+import {
   branches,
   commitAnalyzerPlugin,
   finalizeContext,
   plugins,
   preset,
   releaseNotesGeneratorPlugin,
-} = require('./semantic-release-config.cjs');
+} from './semantic-release-config.cjs';
 
 describe('semantic-release-config', () => {
   it('should export a custom configuration for @semantic-release/commit-analyzer', () => {
