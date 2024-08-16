@@ -15,9 +15,6 @@
     "commitlint",
     "commitlint-config"
   ],
-  "files": [
-    "commitlint.config.cjs"
-  ],
   "dependencies": {
     "@commitlint/config-conventional": "^19.2.2",
     "commitlint-plugin-cspell": "^0.1.1"
