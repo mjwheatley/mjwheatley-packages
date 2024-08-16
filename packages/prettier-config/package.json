@@ -12,9 +12,6 @@
   "keywords": [
     "prettier"
   ],
-  "files": [
-    "prettier.config.cjs"
-  ],
   "peerDependencies": {
     "prettier": ">=2.4.0"
   }
