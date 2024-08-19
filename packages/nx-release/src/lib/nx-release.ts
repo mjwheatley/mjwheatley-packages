@@ -16,15 +16,20 @@ export const nxRelease = async (options: NxReleaseOptions): Promise<number> => {
       verbose,
       firstRelease,
     });
-    // Do something with the result
+
     console.log('generateReleaseNotesResult', generateReleaseNotesResult);
 
     await outputReleaseNotes(generateReleaseNotesResult);
 
-    return await publishPackages({
-      ...options,
-      projects: Object.keys(generateReleaseNotesResult.projectChangelogs as object),
-    });
+    const projects = Object.keys(generateReleaseNotesResult.projectChangelogs ?? {});
+    if (projects.length) {
+      return await publishPackages({
+        ...options,
+        projects,
+      });
+    }
+    console.log('No projects to publish');
+    return 0;
   } catch (error) {
     console.error('Error releasing', error);
     return 1;

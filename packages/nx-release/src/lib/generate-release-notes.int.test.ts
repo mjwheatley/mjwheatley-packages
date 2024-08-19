@@ -47,5 +47,5 @@ const generateReleaseNotesOptions = {
 describe('generateReleaseNotes()', () => {
   it('should output the changelog', async () => {
     await expect(generateReleaseNotes(generateReleaseNotesOptions)).resolves.toBeDefined();
-  }, 60000);
+  });
 });

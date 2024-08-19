@@ -123,6 +123,9 @@
       }
     },
     "changelog": {
+      "git": {
+        "commit": false
+      },
       "projectChangelogs": {
         "file": false,
         "createRelease": "github"

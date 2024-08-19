@@ -18,10 +18,11 @@
       "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/packages/nx-release",
-        "main": "packages/nx-release/src/cli.ts",
+        "main": "packages/nx-release/src/index.ts",
         "tsConfig": "packages/nx-release/tsconfig.lib.json",
         "assets": ["packages/nx-release/*.md"],
-        "format": ["cjs", "esm"]
+        "format": ["cjs", "esm"],
+        "additionalEntryPoints": ["packages/nx-release/src/cli.ts"]
       }
     },
     "nx-release-publish": {

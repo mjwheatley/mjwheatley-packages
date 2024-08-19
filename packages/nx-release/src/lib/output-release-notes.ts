@@ -33,5 +33,5 @@ export const outputReleaseNotes = async ({
     }
   }
 
-  await writeFile('.nx-release-output', JSON.stringify(output, null, 2));
+  await writeFile('.nx-release-output.json', JSON.stringify(output, null, 2));
 };

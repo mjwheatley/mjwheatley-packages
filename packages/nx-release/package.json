@@ -2,8 +2,8 @@
   "name": "@mjwheatley/nx-release",
   "version": "0.0.1",
   "type": "commonjs",
-  "main": "./cli.cjs",
-  "module": "./cli.js",
+  "main": "./index.cjs",
+  "module": "./index.js",
   "types": "./packages/package-one/src/index.d.ts",
   "license": "MIT",
   "repository": {
@@ -11,8 +11,8 @@
     "url": "git+https://github.com/mjwheatley/nx-monorepo.git",
     "directory": "packages/nx-release"
   },
-  "scripts": {
-    "cli": "pnpm dlx tsx cli.ts --first-release --verbose"
+  "bin": {
+    "nx-release": "./cli.js"
   },
   "devDependencies": {
     "@types/yargs": "^17.0.33"
