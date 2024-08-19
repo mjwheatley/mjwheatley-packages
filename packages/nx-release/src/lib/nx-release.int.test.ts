@@ -5,7 +5,7 @@ describe.skip('nxRelease', () => {
     expect(
       nxRelease({
         dryRun: true,
-        verbose: false,
+        verbose: true,
         firstRelease: true,
       }),
     ).resolves.toEqual('0');

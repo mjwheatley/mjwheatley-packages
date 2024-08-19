@@ -24,11 +24,18 @@ export const generateReleaseNotes = async ({
     verbose,
     firstRelease,
   });
-  return releaseChangelog({
-    versionData: projectsVersionData,
-    version: workspaceVersion,
-    dryRun,
-    verbose,
-    firstRelease,
-  });
+  try {
+    const nxReleaseChangelogResult = await releaseChangelog({
+      versionData: projectsVersionData,
+      version: workspaceVersion,
+      dryRun,
+      verbose,
+      firstRelease,
+    });
+    console.log('nxReleaseChangelogResult', nxReleaseChangelogResult);
+    return nxReleaseChangelogResult;
+  } catch (error) {
+    console.error('Error generating release notes', error);
+    throw error;
+  }
 };
