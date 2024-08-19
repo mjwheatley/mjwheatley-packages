@@ -21,7 +21,10 @@ export const nxRelease = async (options: NxReleaseOptions): Promise<number> => {
 
     await outputReleaseNotes(generateReleaseNotesResult);
 
-    return await publishPackages(options);
+    return await publishPackages({
+      ...options,
+      projects: Object.keys(generateReleaseNotesResult.projectChangelogs as object),
+    });
   } catch (error) {
     console.error('Error releasing', error);
     return 1;

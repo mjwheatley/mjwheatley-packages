@@ -1,13 +1,13 @@
 import { nxRelease } from './nx-release';
 
-describe.skip('nxRelease', () => {
-  it('should work perform a first release dry run', () => {
+describe('nxRelease', () => {
+  it('should perform a first release dry run', () => {
     expect(
       nxRelease({
         dryRun: true,
         verbose: true,
         firstRelease: true,
       }),
-    ).resolves.toEqual('0');
+    ).resolves.toEqual(0);
   });
 });

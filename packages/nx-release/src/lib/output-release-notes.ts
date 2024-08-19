@@ -5,7 +5,6 @@ interface OutputFormat {
   name: string;
   notes: string;
   tag: string;
-  url: string;
 }
 
 export const outputReleaseNotes = async ({
@@ -20,7 +19,6 @@ export const outputReleaseNotes = async ({
       name: releaseVersion.rawVersion,
       notes: contents,
       tag: releaseVersion.gitTag,
-      url: '', // Determine the URL logic here
     });
   }
 
@@ -31,7 +29,6 @@ export const outputReleaseNotes = async ({
         name: `${projectName} ${releaseVersion.rawVersion}`,
         notes: contents,
         tag: releaseVersion.gitTag,
-        url: '', // Determine the URL logic here
       });
     }
   }
