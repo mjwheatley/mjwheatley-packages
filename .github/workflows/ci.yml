@@ -100,4 +100,4 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           NPM_CONFIG_PROVENANCE: ${{ secrets.NPM_TOKEN && 'true' || 'false' }}
-        run: echo 'y' | pnpx nx release
+        run: pnpx nx release -y
