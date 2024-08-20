@@ -17,8 +17,6 @@ export const nxRelease = async (options: NxReleaseOptions): Promise<number> => {
       firstRelease,
     });
 
-    console.log('generateReleaseNotesResult', generateReleaseNotesResult);
-
     await outputReleaseNotes(generateReleaseNotesResult);
 
     const projects = Object.keys(generateReleaseNotesResult.projectChangelogs ?? {});

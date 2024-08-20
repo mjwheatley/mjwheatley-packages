@@ -9,15 +9,10 @@ export const publishPackages = async ({
 }: NxReleaseOptions & {
   projects?: string[];
 }): Promise<number> => {
-  /**
-   * The returned number value from releasePublish will be zero if all projects are published successfully, non-zero if not
-   * **/
-  const publishStatus = await releasePublish({
+  return await releasePublish({
     projects,
     dryRun,
     verbose,
     firstRelease,
   });
-  console.log('publishStatus', publishStatus);
-  return publishStatus;
 };
