@@ -119,13 +119,15 @@
       "preVersionCommand": "pnpm dlx nx run-many -t build",
       "conventionalCommits": true,
       "generatorOptions": {
-        "updateDependents": false
+        "updateDependents": false,
+        "fallbackCurrentVersionResolver": "disk"
       }
     },
     "changelog": {
       "git": {
         "commit": false
       },
+      "automaticFromRef": true,
       "projectChangelogs": {
         "file": false,
         "createRelease": "github"
