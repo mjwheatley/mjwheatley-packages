@@ -1,0 +1,35 @@
+{
+  "name": "@mjwheatley/nx-release-cli",
+  "version": "0.0.0",
+  "type": "module",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mjwheatley/mjwheatley-packages.git",
+    "directory": "packages/nx-release-cli"
+  },
+  "bin": {
+    "nx-release": "./dist/cli.js"
+  },
+  "sideEffects": false,
+  "files": [
+    "dist",
+    "!**/*.tsbuildinfo"
+  ],
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./lib/*": {
+      "types": "./dist/lib/*.d.ts",
+      "import": "./dist/lib/*.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "peerDependencies": {
+    "nx": ">=19"
+  }
+}

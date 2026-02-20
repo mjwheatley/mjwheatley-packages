@@ -1,33 +1,10 @@
 {
   "name": "semantic-release-config",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "packages/semantic-release-config/src",
+  "sourceRoot": "{projectRoot}/src",
   "projectType": "library",
-  "release": {
-    "version": {
-      "generatorOptions": {
-        "packageRoot": "dist/{projectRoot}",
-        "currentVersionResolver": "git-tag"
-      }
-    }
-  },
   "tags": [],
   "targets": {
-    "build": {
-      "executor": "@nx/esbuild:esbuild",
-      "outputs": ["{options.outputPath}"],
-      "options": {
-        "outputPath": "dist/packages/semantic-release-config",
-        "main": "packages/semantic-release-config/semantic-release-config.cjs",
-        "tsConfig": "packages/semantic-release-config/tsconfig.lib.json",
-        "assets": ["packages/semantic-release-config/*.md", "packages/semantic-release-config/commit.hbs"],
-        "format": ["cjs"]
-      }
-    },
-    "nx-release-publish": {
-      "options": {
-        "packageRoot": "dist/{projectRoot}"
-      }
-    }
+    "test": {}
   }
 }

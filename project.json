@@ -1,5 +1,5 @@
 {
-  "name": "@mjwheatley/nx-monorepo",
+  "name": "mjwheatley-packages",
   "$schema": "node_modules/nx/schemas/project-schema.json",
   "targets": {
     "local-registry": {
@@ -10,17 +10,24 @@
         "storage": "tmp/local-registry/storage"
       }
     },
-    "nx-release-publish": {
+    "build": {
+      "executor": "nx:noop",
+      "dependsOn": ["^build"]
+    },
+    "lint": {
+      "dependsOn": ["^build"],
+      "executor": "@nx/eslint:lint",
       "options": {
-        "packageRoot": "dist/{projectRoot}"
+        "lintFilePatterns": ["./*.{js,cjs,mjs,ts,cts,mts}"]
       }
-    }
-  },
-  "release": {
-    "version": {
-      "generatorOptions": {
-        "packageRoot": "dist/{projectRoot}",
-        "currentVersionResolver": "git-tag"
+    },
+    "typecheck": {
+      "cache": true,
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": ["tsc --build tsconfig.configs.json --verbose --pretty --noEmit"],
+        "cwd": "{projectRoot}",
+        "forwardAllArgs": false
       }
     }
   }

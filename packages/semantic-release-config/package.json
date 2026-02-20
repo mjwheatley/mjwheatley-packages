@@ -2,15 +2,24 @@
   "name": "@mjwheatley/semantic-release-config",
   "version": "0.0.0",
   "description": "Shareable semantic-release config",
-  "type": "commonjs",
-  "main": "./semantic-release-config.cjs",
+  "type": "module",
+  "main": "./dist/semantic-release-config.js",
+  "types": "./dist/semantic-release-config.d.ts",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mjwheatley/nx-monorepo.git",
+    "url": "git+https://github.com/mjwheatley/mjwheatley-packages.git",
     "directory": "packages/semantic-release-config"
   },
   "keywords": [
-    "semantic-release"
-  ]
+    "semantic-release",
+    "config"
+  ],
+  "dependencies": {
+    "conventional-changelog-conventionalcommits": "^9.0.0",
+    "semantic-release-lifecycles": "^1.1.0"
+  },
+  "peerDependencies": {
+    "semantic-release": ">=24"
+  }
 }

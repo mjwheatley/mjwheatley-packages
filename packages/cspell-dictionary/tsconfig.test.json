@@ -1,0 +1,8 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "outDir": "../../dist/out-tsc/packages/cspell-dictionary",
+    "types": ["vitest/globals", "vitest/importMeta", "node", "vitest"]
+  },
+  "include": ["vitest.config.mts", "test/**/*.test.ts"]
+}

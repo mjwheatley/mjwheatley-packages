@@ -64,6 +64,15 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Audit dependencies
+        run: pnpm audit --audit-level=moderate --prod --ignore-registry-errors
+
+      - name: Nx sync check
+        run: pnpm exec nx sync:check
+
+      - name: Check for circular dependencies
+        run: pnpm check:circular
+
       - name: Check for secrets
         run: pnpm secretlint
 
@@ -71,7 +80,16 @@ jobs:
         run: pnpm spellcheck
 
       - name: Format
-        run: pnpm nx format:check
+        run: pnpm format:check
+
+      - name: Typecheck
+        run: pnpm typecheck
+
+      - name: Linting
+        run: pnpm lint
+
+      - name: Build
+        run: pnpm build
 
       - name: Test
         run: pnpm test
@@ -79,9 +97,6 @@ jobs:
       - name: Report Coverage
         if: ${{ github.event_name == 'pull_request' }}
         uses: davelosert/vitest-coverage-report-action@v2
-
-      - name: Build
-        run: pnpm build
 
       - name: Setup Git User
         uses: fregante/setup-git-user@v2
@@ -91,7 +106,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: pnpm nx release --dry-run
+        run: pnpm dlx tsx packages/nx-release-cli/src/cli.ts --dry-run=true
 
       - name: Release
         if: ${{ success() && (github.event_name != 'pull_request' || github.event.action == 'closed' && github.event.pull_request.merged == true) }}
@@ -100,6 +115,4 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           NPM_CONFIG_PROVENANCE: ${{ secrets.NPM_TOKEN && 'true' || 'false' }}
-        run: |
-          pnpm nx run nx-release:build
-          dist/packages/nx-release/cli.cjs --dry-run=false
+        run: pnpm dlx tsx packages/nx-release-cli/src/cli.ts --dry-run=false

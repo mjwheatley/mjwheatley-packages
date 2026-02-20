@@ -5,21 +5,41 @@
     "production": [
       "default",
       "!{projectRoot}/**/?(*.)+(spec|test).[jt]s?(x)?(.snap)",
-      "!{projectRoot}/tsconfig.spec.json",
-      "!{projectRoot}/.eslintrc.json",
-      "!{projectRoot}/eslint.config.js"
+      "!{projectRoot}/tsconfig.test.json",
+      "!{projectRoot}/eslint.config.js",
+      "!{projectRoot}/eslint.config.mjs"
     ],
     "sharedGlobals": ["{workspaceRoot}/.github/workflows/ci.yml"]
   },
+  "targetDefaults": {
+    "@nx/vite:test": {
+      "cache": true,
+      "inputs": ["default", "^production"],
+      "outputs": ["{options.reportsDirectory}"],
+      "options": {
+        "reportsDirectory": "{workspaceRoot}/coverage/{projectRoot}"
+      }
+    },
+    "nx-release-publish": {
+      "options": {
+        "packageRoot": "{projectRoot}"
+      }
+    },
+    "test": {
+      "executor": "@nx/vitest:test"
+    }
+  },
   "plugins": [
     {
-      "plugin": "@nx/vite/plugin",
+      "plugin": "@nx/js/typescript",
       "options": {
-        "buildTargetName": "build",
-        "testTargetName": "test",
-        "serveTargetName": "serve",
-        "previewTargetName": "preview",
-        "serveStaticTargetName": "serve-static"
+        "typecheck": {
+          "targetName": "typecheck"
+        },
+        "build": {
+          "targetName": "build",
+          "configName": "tsconfig.lib.json"
+        }
       }
     },
     {
@@ -29,21 +49,9 @@
       }
     }
   ],
-  "targetDefaults": {
-    "@nx/esbuild:esbuild": {
-      "cache": true,
-      "dependsOn": ["^build"],
-      "inputs": ["production", "^production"]
-    },
-    "@nx/js:tsc": {
-      "cache": true,
-      "dependsOn": ["^build"],
-      "inputs": ["production", "^production"]
-    }
-  },
   "release": {
-    "projects": ["packages/*", "!nx-monorepo"],
-    "releaseTagPattern": "@mjwheatley/{projectName}-v{version}",
+    "projects": ["packages/*"],
+    "releaseTagPattern": "{projectName}/v{version}",
     "projectsRelationship": "independent",
     "conventionalCommits": {
       "types": {
@@ -120,14 +128,15 @@
       "conventionalCommits": true,
       "generatorOptions": {
         "updateDependents": false,
+        "skipLockFileUpdate": true,
         "fallbackCurrentVersionResolver": "disk"
       }
     },
     "changelog": {
+      "automaticFromRef": true,
       "git": {
         "commit": false
       },
-      "automaticFromRef": true,
       "projectChangelogs": {
         "file": false,
         "createRelease": "github"

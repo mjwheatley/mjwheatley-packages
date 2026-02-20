@@ -1,36 +1,13 @@
 {
   "name": "cspell-dictionary",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "packages/cspell-dictionary/src",
+  "sourceRoot": "{projectRoot}/src",
   "projectType": "library",
-  "release": {
-    "version": {
-      "generatorOptions": {
-        "packageRoot": "dist/{projectRoot}",
-        "currentVersionResolver": "git-tag"
-      }
-    }
-  },
   "tags": [],
   "targets": {
     "build": {
-      "executor": "@nx/esbuild:esbuild",
-      "outputs": ["{options.outputPath}"],
-      "options": {
-        "outputPath": "dist/packages/cspell-dictionary",
-        "main": "packages/cspell-dictionary/main.json",
-        "tsConfig": "packages/cspell-dictionary/tsconfig.lib.json",
-        "assets": [
-          "packages/cspell-dictionary/*.md",
-          "packages/cspell-dictionary/main.json",
-          "packages/cspell-dictionary/dictionary/*.txt"
-        ]
-      }
+      "executor": "nx:noop"
     },
-    "nx-release-publish": {
-      "options": {
-        "packageRoot": "dist/{projectRoot}"
-      }
-    }
+    "test": {}
   }
 }
