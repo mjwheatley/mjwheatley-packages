@@ -4,3 +4,4 @@ npmjs
 npx
 pnpx
 unpublish
+corepack
