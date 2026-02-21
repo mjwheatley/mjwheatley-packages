@@ -13,6 +13,9 @@
   "keywords": [
     "prettier"
   ],
+  "devDependencies": {
+    "vitest": "catalog:"
+  },
   "peerDependencies": {
     "prettier": ">=2.4.0"
   }

@@ -29,6 +29,10 @@
     },
     "./package.json": "./package.json"
   },
+  "devDependencies": {
+    "@nx/vite": "catalog:",
+    "vitest": "catalog:"
+  },
   "peerDependencies": {
     "nx": ">=19"
   }

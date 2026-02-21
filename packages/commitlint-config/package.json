@@ -22,11 +22,17 @@
   "main": "./dist/commitlint-config.js",
   "types": "./dist/commitlint-config.d.ts",
   "dependencies": {
-    "@commitlint/config-conventional": "^19.8.1",
-    "@commitlint/types": "^19.8.1",
+    "@commitlint/config-conventional": "^20.4.2",
+    "@commitlint/types": "catalog:",
     "commitlint-plugin-cspell": "^0.2.0"
   },
+  "devDependencies": {
+    "@commitlint/lint": "^20.4.2",
+    "@commitlint/load": "^20.4.0",
+    "commitlint": "catalog:",
+    "vitest": "catalog:"
+  },
   "peerDependencies": {
-    "commitlint": ">=19"
+    "commitlint": "^20.4.2"
   }
 }

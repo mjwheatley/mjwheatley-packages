@@ -9,7 +9,10 @@
       "!{projectRoot}/eslint.config.js",
       "!{projectRoot}/eslint.config.mjs"
     ],
-    "sharedGlobals": ["{workspaceRoot}/.github/workflows/ci.yml"]
+    "sharedGlobals": [
+      "{workspaceRoot}/.github/workflows/pull-request.yml",
+      "{workspaceRoot}/.github/workflows/release.yml"
+    ]
   },
   "targetDefaults": {
     "@nx/vite:test": {

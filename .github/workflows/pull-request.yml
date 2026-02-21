@@ -72,10 +72,10 @@ jobs:
         run: pnpm format:check
 
       - name: Typecheck, lint, build
-        run: pnpm exec nx affected -t typecheck lint build --batch --nxBail --parallel=4
+        run: pnpm exec nx affected -t typecheck lint build --batch --nxBail --parallel=4 --no-tui
 
       - name: Test
-        run: pnpm exec nx affected -t test --nxBail --parallel=4
+        run: pnpm exec nx affected -t test --nxBail --parallel=4 --no-tui
 
       - name: Report Coverage
         uses: davelosert/vitest-coverage-report-action@v2

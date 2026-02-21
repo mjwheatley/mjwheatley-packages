@@ -59,6 +59,7 @@ export default tsEslint.config(
       ],
       '@typescript-eslint/consistent-type-definitions': 'off',
       '@typescript-eslint/no-unsafe-enum-comparison': 'off',
+      'import/no-extraneous-dependencies': ['error'],
       'unicorn/prefer-node-protocol': 'error',
     },
   },

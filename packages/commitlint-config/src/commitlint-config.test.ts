@@ -10,7 +10,7 @@ import commitlintConfig from './commitlint-config.js';
 let rules: QualifiedRules;
 let lintOptions: LintOptions;
 
-async function lintMessage(message: string) {
+function lintMessage(message: string) {
   return lint(message, rules, lintOptions);
 }
 

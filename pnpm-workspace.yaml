@@ -1,6 +1,12 @@
 packages:
   - packages/*
 
+catalog:
+  '@commitlint/types': ^20.4.0
+  '@nx/vite': 22.5.1
+  commitlint: ^20.4.2
+  vitest: ^4.0.18
+
 overrides:
   '@babel/helpers@<7.26.10': '>=7.26.10'
   '@babel/runtime@<7.26.10': '>=7.26.10'
