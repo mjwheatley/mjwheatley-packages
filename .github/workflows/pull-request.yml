@@ -77,9 +77,6 @@ jobs:
       - name: Test
         run: pnpm exec nx affected -t test --nxBail --parallel=4 --no-tui
 
-      - name: Report Coverage
-        uses: davelosert/vitest-coverage-report-action@v2
-
       - name: Setup Git User
         uses: fregante/setup-git-user@v2
 
