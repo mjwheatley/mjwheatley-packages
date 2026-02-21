@@ -129,11 +129,8 @@
     "version": {
       "preVersionCommand": "pnpm dlx nx run-many -t build",
       "conventionalCommits": true,
-      "generatorOptions": {
-        "updateDependents": false,
-        "skipLockFileUpdate": true,
-        "fallbackCurrentVersionResolver": "disk"
-      }
+      "updateDependents": "never",
+      "fallbackCurrentVersionResolver": "disk"
     },
     "changelog": {
       "automaticFromRef": true,
