@@ -1,4 +1,4 @@
-name: Pull Requests and Releases
+name: Releases
 
 on:
   push:
@@ -8,7 +8,6 @@ on:
       - beta
       - alpha
       - '*.x'
-  pull_request:
 
 env:
   HUSKY: 0
@@ -19,7 +18,6 @@ permissions:
   issues: write # to be able to comment on released issues
   pull-requests: write # to be able to comment on released pull requests
   id-token: write # to enable use of OIDC for npm provenance
-  actions: read # to be able to find the last successful workflow run for `nx affected` to work
 
 jobs:
   release:
@@ -29,25 +27,11 @@ jobs:
         working-directory: ${{ github.workspace }}
 
     steps:
-      - name: Checkout [Pull Request]
+      - name: Checkout
         uses: actions/checkout@v4
-        if: ${{ github.event_name == 'pull_request' }}
-        with:
-          ref: ${{ github.event.pull_request.head.sha }}
-          token: ${{ secrets.GITHUB_TOKEN }}
-          fetch-depth: 0
-
-      - name: Checkout [Branch]
-        uses: actions/checkout@v4
-        if: ${{ github.event_name != 'pull_request' }}
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           fetch-depth: 0
-
-      - name: Derive appropriate SHAs for base and head for `nx affected` commands
-        uses: nrwl/nx-set-shas@v4
-        with:
-          main-branch-name: ${{ github.base_ref }}
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
@@ -94,22 +78,11 @@ jobs:
       - name: Test
         run: pnpm test
 
-      - name: Report Coverage
-        if: ${{ github.event_name == 'pull_request' }}
-        uses: davelosert/vitest-coverage-report-action@v2
-
       - name: Setup Git User
         uses: fregante/setup-git-user@v2
 
-      - name: Release [Dry Run]
-        if: ${{ success() && github.event_name == 'pull_request' }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: pnpm dlx tsx packages/nx-release-cli/src/cli.ts --dry-run=true
-
       - name: Release
-        if: ${{ success() && (github.event_name != 'pull_request' || github.event.action == 'closed' && github.event.pull_request.merged == true) }}
+        if: ${{ success() }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
