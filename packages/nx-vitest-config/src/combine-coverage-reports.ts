@@ -62,6 +62,7 @@ export const combineSonarReports = async (inputFiles: string[], outputFile: stri
     // Process each input file
     for (const inputFile of inputFiles) {
       const xmlContent = readFileSync(inputFile, 'utf-8');
+      // eslint-disable-next-line no-await-in-loop
       const parsedXml: ParsedXml = (await parseStringPromise(xmlContent)) as ParsedXml;
 
       combinedTestExecutions.file.push(...parsedXml.testExecutions.file);

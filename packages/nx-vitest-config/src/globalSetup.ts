@@ -1,3 +1,3 @@
-export default function setup() {
+export default function setup(): void {
   process.env.TZ = 'UTC';
 }

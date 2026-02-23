@@ -5,9 +5,9 @@ import { nxCopyAssetsPlugin } from '@nx/vite/plugins/nx-copy-assets.plugin';
 import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin';
 import { type ViteUserConfig, defineConfig as vitestDefineConfig } from 'vitest/config';
 
-export const getDirName = (path: string) => dirname(fileURLToPath(path));
+export const getDirName = (path: string): string => dirname(fileURLToPath(path));
 
-export const getProjectRoot = ({ cwd }: { cwd: string }) => {
+export const getProjectRoot = ({ cwd }: { cwd: string }): string => {
   const parts = cwd.split('/');
 
   return join(parts.at(-2) ?? '', parts.at(-1) ?? '');
@@ -35,7 +35,7 @@ export const getVitestReporters = ({
   ];
 };
 
-export const getVitestCoverageReporters = () => ['json-summary', 'json', 'html', 'lcov'];
+export const getVitestCoverageReporters = (): string[] => ['json-summary', 'json', 'html', 'lcov'];
 
 export const getVitestCoverageConfig = ({
   nxProjectRoot,

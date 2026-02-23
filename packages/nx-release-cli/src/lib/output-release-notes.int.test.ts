@@ -1,9 +1,10 @@
-import { join } from 'node:path';
 import { readFile } from 'node:fs/promises';
+import { join } from 'node:path';
 
 import { expect } from 'vitest';
 
 import { type OutputFormat, outputReleaseNotes } from './output-release-notes.js';
+
 import type { NxReleaseChangelogResult } from 'nx/src/command-line/release/changelog.js';
 
 const nxReleaseChangelogResult: NxReleaseChangelogResult = {
@@ -27,6 +28,7 @@ describe('outputReleaseNotes()', () => {
     const filePath = join(process.cwd(), '.nx-release-output.json');
     const fileContents = await readFile(filePath, 'utf-8');
     const projectChangelogs: OutputFormat[] = JSON.parse(fileContents);
+
     expect(Array.isArray(projectChangelogs)).toBe(true);
     expect(projectChangelogs).toHaveLength(1);
     expect(projectChangelogs.at(0)).toEqual(

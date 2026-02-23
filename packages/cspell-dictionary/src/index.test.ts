@@ -1,6 +1,5 @@
-import { describe, expect, it } from 'vitest';
-
 import { spellCheckDocument, type ValidationIssue } from 'cspell-lib';
+import { describe, expect, it } from 'vitest';
 
 async function spellCheck(text: string): Promise<ValidationIssue[]> {
   const results = await spellCheckDocument(
