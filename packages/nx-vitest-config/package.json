@@ -3,10 +3,14 @@
   "version": "0.0.0",
   "private": true,
   "type": "module",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mjwheatley/mjwheatley-packages.git",
     "directory": "packages/nx-vitest-config"
+  },
+  "bin": {
+    "combine-coverage-reports": "./dist/cli.js"
   },
   "keywords": [
     "nx",
@@ -30,8 +34,12 @@
     },
     "./package.json": "./package.json"
   },
+  "dependencies": {
+    "xml2js": "^0.6.2"
+  },
   "devDependencies": {
     "@nx/vite": "catalog:",
+    "@types/xml2js": "^0.4.14",
     "@vitest/coverage-v8": "catalog:",
     "vitest": "catalog:",
     "vitest-sonar-reporter": "catalog:"
