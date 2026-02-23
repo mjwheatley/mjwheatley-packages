@@ -2,7 +2,7 @@ import { getDirName, getVitestConfig } from '@mjwheatley/nx-vitest-config';
 import { defineConfig } from 'vitest/config';
 
 const sharedVitestConfig = getVitestConfig({
-  nxProjectRoot: 'packages/prettier-config',
+  nxProjectRoot: 'packages/semantic-release-config',
   configDir: getDirName(import.meta.url),
   isLib: true,
 });
