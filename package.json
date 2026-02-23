@@ -17,7 +17,7 @@
     "test:all": "nx run-many -t test --nxBail --parallel=4 --silent=passed-only --no-tui",
     "test:coverage:combine": "pnpm dlx tsx packages/nx-vitest-config/src/combine-coverage-reports-cli.ts",
     "check:circular": "madge --circular --extensions ts,js,tsx .",
-    "postinstall": "nx build mjwheatley-packages --no-tui"
+    "postinstall": "tsc --build packages/eslint-config/tsconfig.lib.json && pnpm build"
   },
   "devDependencies": {
     "@commitlint/config-nx-scopes": "^20.4.0",
