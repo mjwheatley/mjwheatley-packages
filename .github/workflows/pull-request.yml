@@ -77,7 +77,7 @@ jobs:
       - name: Test
         run: |
           pnpm exec nx affected -t test --nxBail --parallel=4 --no-tui
-          pnpm test:coverage:combine-coverage-reports
+          pnpm test:coverage:combine
         env:
           NODE_ENV: test
 
