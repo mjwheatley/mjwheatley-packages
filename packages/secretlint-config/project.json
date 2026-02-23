@@ -1,13 +1,14 @@
 {
   "name": "secretlint-config",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "{projectRoot}/src",
+  "sourceRoot": "{projectRoot}",
   "projectType": "library",
   "tags": [],
   "targets": {
     "build": {
       "executor": "nx:noop"
     },
+    "clean": {},
     "test": {}
   }
 }

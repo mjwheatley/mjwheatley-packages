@@ -1,11 +1,12 @@
 {
-  "name": "nx-release-cli",
+  "name": "nx-vitest-config",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "{projectRoot}",
   "projectType": "library",
   "tags": [],
   "targets": {
     "clean": {},
-    "test": {}
+    "test": {},
+    "nx-release-publish": {}
   }
 }

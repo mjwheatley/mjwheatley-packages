@@ -20,6 +20,7 @@
     "semantic-release-lifecycles": "^1.1.0"
   },
   "devDependencies": {
+    "@mjwheatley/nx-vitest-config": "workspace:*",
     "@nx/vite": "catalog:",
     "vitest": "catalog:"
   },

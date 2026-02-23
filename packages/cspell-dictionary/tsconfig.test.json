@@ -4,5 +4,5 @@
     "outDir": "../../dist/out-tsc/packages/cspell-dictionary",
     "types": ["vitest/globals", "vitest/importMeta", "node", "vitest"]
   },
-  "include": ["vitest.config.mts", "test/**/*.test.ts"]
+  "include": ["vitest.config.mts", "src/**/*.test.ts"]
 }
