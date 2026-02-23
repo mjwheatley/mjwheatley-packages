@@ -76,7 +76,21 @@ jobs:
         run: pnpm build
 
       - name: Test
-        run: pnpm test
+        run: |
+          pnpm test:all
+          pnpm test:coverage:combine
+        env:
+          NODE_ENV: test
+
+      # Upload the coverage and test results as artifacts
+      - name: Upload Combined Test Coverage Reports
+        uses: actions/upload-artifact@v6
+        with:
+          name: test-coverage-${{ github.run_id }}-${{ github.run_number }}
+          retention-days: 1
+          path: |
+            ./coverage/combined-lcov.info
+            ./coverage/combined-sonar-report.xml
 
       - name: Setup Git User
         uses: fregante/setup-git-user@v2
