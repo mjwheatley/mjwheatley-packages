@@ -1,0 +1,79 @@
+{
+  "patterns": [
+    {
+      "name": "TicketNumber",
+      "pattern": "(?<=^|\\s)\\[?(?<ticketNumber>[A-Z]{3,}-\\d+(-\\d+)?)\\]?(?=[\\s.]|$)"
+    },
+    {
+      "name": "HtmlEntities",
+      "pattern": "&([a-zA-Z0-9]+|#\\d+);"
+    },
+    {
+      "name": "CVE",
+      "pattern": "CVE-\\d{4}-\\d+"
+    },
+    {
+      "name": "GHSA",
+      "pattern": "GHSA-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}"
+    }
+  ],
+  "ignoreRegExpList": ["TicketNumber", "HtmlEntities", "CVE", "GHSA"],
+  "dictionaries": [
+    "acronyms",
+    "common filenames",
+    "identifiers",
+    "packages",
+    "people",
+    "places",
+    "programming terms",
+    "things",
+    "usernames"
+  ],
+  "dictionaryDefinitions": [
+    {
+      "name": "acronyms",
+      "path": "./dictionary/acronyms.txt",
+      "addWords": false
+    },
+    {
+      "name": "common filenames",
+      "path": "./dictionary/common-filenames.txt",
+      "addWords": false
+    },
+    {
+      "name": "identifiers",
+      "path": "./dictionary/identifiers.txt",
+      "addWords": false
+    },
+    {
+      "name": "packages",
+      "path": "./dictionary/packages.txt",
+      "addWords": false
+    },
+    {
+      "name": "people",
+      "path": "./dictionary/people.txt",
+      "addWords": false
+    },
+    {
+      "name": "places",
+      "path": "./dictionary/places.txt",
+      "addWords": false
+    },
+    {
+      "name": "programming terms",
+      "path": "./dictionary/programming-terms.txt",
+      "addWords": false
+    },
+    {
+      "name": "things",
+      "path": "./dictionary/things.txt",
+      "addWords": false
+    },
+    {
+      "name": "usernames",
+      "path": "./dictionary/usernames.txt",
+      "addWords": false
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "name": "@mjwheatley/secretlint-config",
+  "version": "0.0.0",
+  "type": "module",
+  "main": "./secretlint-config.json",
+  "files": [
+    "./secretlint-config.json"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mjwheatley/mjwheatley-packages.git",
+    "directory": "packages/secretlint-config"
+  },
+  "keywords": [
+    "secretlint",
+    "config"
+  ],
+  "dependencies": {
+    "@secretlint/secretlint-rule-pattern": "^10.1.0",
+    "@secretlint/secretlint-rule-preset-recommend": "^10.1.0"
+  },
+  "devDependencies": {
+    "@nx/vite": "catalog:",
+    "vitest": "catalog:"
+  },
+  "peerDependencies": {
+    "secretlint": ">=10"
+  }
+}

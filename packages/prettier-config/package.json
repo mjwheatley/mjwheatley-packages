@@ -1,17 +1,21 @@
 {
   "name": "@mjwheatley/prettier-config",
   "version": "0.0.0",
-  "type": "commonjs",
-  "main": "./prettier-config.cjs",
+  "type": "module",
+  "main": "./dist/prettier-config.js",
+  "types": "./dist/prettier-config.d.ts",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mjwheatley/nx-monorepo.git",
+    "url": "git+https://github.com/mjwheatley/mjwheatley-packages.git",
     "directory": "packages/prettier-config"
   },
   "keywords": [
     "prettier"
   ],
+  "devDependencies": {
+    "vitest": "catalog:"
+  },
   "peerDependencies": {
     "prettier": ">=2.4.0"
   }

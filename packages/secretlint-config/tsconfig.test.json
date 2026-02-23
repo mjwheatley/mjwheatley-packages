@@ -1,0 +1,9 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "outDir": "../../dist/out-tsc/packages/secretlint-config",
+    "resolveJsonModule": true,
+    "types": ["vitest/globals", "vitest/importMeta", "node", "vitest"]
+  },
+  "include": ["vitest.config.mts", "./secretlint-config.json", "test/**/*.test.ts"]
+}

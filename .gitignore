@@ -42,3 +42,4 @@ Thumbs.db
 .nx/workspace-data
 .eslintcache
 .nx-release-output.json
+*.tsbuildinfo

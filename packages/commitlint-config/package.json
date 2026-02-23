@@ -2,12 +2,11 @@
   "name": "@mjwheatley/commitlint-config",
   "version": "0.0.0",
   "description": "Shareable commitlint config enforcing conventional commits",
-  "type": "commonjs",
-  "main": "./commitlint-config.cjs",
+  "type": "module",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mjwheatley/nx-monorepo.git",
+    "url": "git+https://github.com/mjwheatley/mjwheatley-packages.git",
     "directory": "packages/commitlint-config"
   },
   "keywords": [
@@ -15,11 +14,25 @@
     "commitlint",
     "commitlint-config"
   ],
+  "sideEffects": false,
+  "files": [
+    "dist",
+    "!**/*.tsbuildinfo"
+  ],
+  "main": "./dist/commitlint-config.js",
+  "types": "./dist/commitlint-config.d.ts",
   "dependencies": {
-    "@commitlint/config-conventional": "^19.2.2",
-    "commitlint-plugin-cspell": "^0.1.1"
+    "@commitlint/config-conventional": "^20.4.2",
+    "@commitlint/types": "catalog:",
+    "commitlint-plugin-cspell": "^0.2.0"
+  },
+  "devDependencies": {
+    "@commitlint/lint": "^20.4.2",
+    "@commitlint/load": "^20.4.0",
+    "commitlint": "catalog:",
+    "vitest": "catalog:"
   },
   "peerDependencies": {
-    "commitlint": ">=19"
+    "commitlint": "^20.4.2"
   }
 }

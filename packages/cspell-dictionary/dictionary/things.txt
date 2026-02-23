@@ -1,1 +1,7 @@
-orizer
+applepay
+eCommerce
+googlepay
+Leapp
+normel
+wireframe
+zipcode
