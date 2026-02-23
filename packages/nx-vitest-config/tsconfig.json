@@ -4,7 +4,7 @@
   "include": [],
   "references": [
     {
-      "path": "../nx-vitest-config"
+      "path": "./tsconfig.lib.json"
     },
     {
       "path": "./tsconfig.test.json"

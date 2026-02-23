@@ -23,6 +23,9 @@
     },
     {
       "path": "./packages/semantic-release-config"
+    },
+    {
+      "path": "./packages/nx-vitest-config"
     }
   ]
 }

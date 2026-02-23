@@ -18,6 +18,7 @@
     "dictionary"
   ],
   "devDependencies": {
+    "@mjwheatley/nx-vitest-config": "workspace:*",
     "cspell-lib": "^9.1.1",
     "vitest": "catalog:"
   },

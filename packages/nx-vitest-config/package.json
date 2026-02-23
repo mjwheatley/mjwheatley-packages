@@ -1,0 +1,53 @@
+{
+  "name": "@mjwheatley/nx-vitest-config",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mjwheatley/mjwheatley-packages.git",
+    "directory": "packages/nx-vitest-config"
+  },
+  "bin": {
+    "combine-coverage-reports": "./dist/cli.js"
+  },
+  "keywords": [
+    "nx",
+    "vitest"
+  ],
+  "sideEffects": false,
+  "files": [
+    "dist",
+    "!**/*.tsbuildinfo"
+  ],
+  "main": "./dist/vitest-config.js",
+  "types": "./dist/vitest-config.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/vitest-config.d.ts",
+      "import": "./dist/vitest-config.js"
+    },
+    "./*": {
+      "types": "./dist/*.d.ts",
+      "import": "./dist/*.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "dependencies": {
+    "xml2js": "^0.6.2"
+  },
+  "devDependencies": {
+    "@nx/vite": "catalog:",
+    "@types/xml2js": "^0.4.14",
+    "@vitest/coverage-v8": "catalog:",
+    "vitest": "catalog:",
+    "vitest-sonar-reporter": "catalog:"
+  },
+  "peerDependencies": {
+    "@nx/vite": "catalog:",
+    "@vitest/coverage-v8": "catalog:",
+    "vitest": "catalog:",
+    "vitest-sonar-reporter": "catalog:"
+  }
+}

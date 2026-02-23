@@ -9,6 +9,10 @@
     "types": ["node"]
   },
   "include": ["src/**/*.ts"],
-  "references": [],
+  "references": [
+    {
+      "path": "../nx-vitest-config/tsconfig.lib.json"
+    }
+  ],
   "exclude": ["vitest.config.mts", "src/**/*.test.ts"]
 }

@@ -1,10 +1,11 @@
 {
   "name": "semantic-release-config",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "{projectRoot}/src",
+  "sourceRoot": "{projectRoot}",
   "projectType": "library",
   "tags": [],
   "targets": {
+    "clean": {},
     "test": {}
   }
 }

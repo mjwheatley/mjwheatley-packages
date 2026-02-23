@@ -23,13 +23,35 @@
         "reportsDirectory": "{workspaceRoot}/coverage/{projectRoot}"
       }
     },
+    "build": {
+      "dependsOn": ["^build"]
+    },
+    "typecheck": {
+      "dependsOn": ["^build"]
+    },
+    "lint": {
+      "dependsOn": ["^build"]
+    },
+    "test": {
+      "dependsOn": ["^build"],
+      "executor": "@nx/vitest:test",
+      "outputs": ["{options.reportsDirectory}"],
+      "options": {
+        "configFile": "{projectRoot}/vitest.config.mts"
+      }
+    },
+    "clean": {
+      "executor": "nx:run-commands",
+      "inputs": ["{projectRoot}/dist"],
+      "options": {
+        "cwd": "{projectRoot}",
+        "command": "rm -rf ./dist ./*.tsbuildinfo"
+      }
+    },
     "nx-release-publish": {
       "options": {
         "packageRoot": "{projectRoot}"
       }
-    },
-    "test": {
-      "executor": "@nx/vitest:test"
     }
   },
   "plugins": [

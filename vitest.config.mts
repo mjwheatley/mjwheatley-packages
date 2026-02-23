@@ -1,4 +1,4 @@
-import { defineConfig } from 'vitest/config';
+import { configDefaults, defineConfig } from 'vitest/config';
 
 export default defineConfig({
   test: {
@@ -7,22 +7,38 @@ export default defineConfig({
       provider: 'v8',
       reportOnFailure: true,
       reporter: ['json-summary', 'json', 'html', 'lcov'],
-      include: ['packages/**/*'],
+      include: ['{apps,libs,packages}/**/*'],
       exclude: [
         '.nx',
         'node_modules',
         'dist',
+        '**/dist/**/*',
         'coverage',
+        '**/coverage/**/*',
+        '.secretlintrc.cjs',
+        'commitlint.config.mjs',
+        'eslint.config.mjs',
+        'lint-staged.config.mjs',
         'vitest.config.mts',
         'vitest.workspace.ts',
-        'commitlint.config.mjs',
-        'lint-staged.config.mjs',
         '**/.sst',
       ],
     },
     include: ['packages/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
-    exclude: ['node_modules', 'dist', 'lint-staged.config.mjs', 'commitlint.config.mjs'],
-    reporters: process.env['CI'] === 'true' ? ['default', 'json'] : [],
+    exclude: [...configDefaults.exclude, 'lint-staged.config.mjs', 'commitlint.config.mjs'],
+    reporters:
+      process.env['CI'] === 'true'
+        ? [
+            'default',
+            'json',
+            [
+              'vitest-sonar-reporter',
+              {
+                outputFile: './sonar-report.xml',
+              },
+            ],
+          ]
+        : [],
     projects: ['packages/*'],
   },
 });

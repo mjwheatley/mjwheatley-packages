@@ -1,8 +1,9 @@
-import { getDirName, getVitestConfig } from '@mjwheatley/nx-vitest-config';
 import { defineConfig } from 'vitest/config';
 
+import { getDirName, getVitestConfig } from './src/vitest-config.js';
+
 const sharedVitestConfig = getVitestConfig({
-  nxProjectRoot: 'packages/nx-release-cli',
+  nxProjectRoot: 'packages/nx-vitest-config',
   configDir: getDirName(import.meta.url),
   isLib: true,
 });

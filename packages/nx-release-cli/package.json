@@ -30,6 +30,7 @@
     "./package.json": "./package.json"
   },
   "devDependencies": {
+    "@mjwheatley/nx-vitest-config": "workspace:*",
     "@nx/vite": "catalog:",
     "vitest": "catalog:"
   },

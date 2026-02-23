@@ -4,6 +4,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
+    "clean": "nx run-many -t clean --no-tui",
     "build": "nx run-many -t build --no-tui",
     "typecheck": "nx run-many -t typecheck --no-tui",
     "format": "prettier --write .",
@@ -13,7 +14,8 @@
     "secretlint": "secretlint .  --maskSecrets",
     "spellcheck": "cspell --no-progress \"./{.github,packages}/**/*.{md,js,mjs,cjs,ts,mts,cts,tsx,json,yml}\" \"./*.{md,js,mjs,cjs,ts,mts,cts,tsx,json}\"",
     "test": "vitest --run",
-    "test:all": "nx run-many -t test --no-tui",
+    "test:all": "nx run-many -t test --nxBail --parallel=4 --silent=passed-only --no-tui",
+    "test:coverage:combine": "pnpm dlx tsx packages/nx-vitest-config/src/combine-coverage-reports-cli.ts",
     "check:circular": "madge --circular --extensions ts,js,tsx .",
     "postinstall": "nx build mjwheatley-packages --no-tui"
   },
@@ -40,7 +42,7 @@
     "@types/node": "25.3.0",
     "@typescript-eslint/eslint-plugin": "^8.56.0",
     "@typescript-eslint/parser": "^8.56.0",
-    "@vitest/coverage-v8": "^4.0.18",
+    "@vitest/coverage-v8": "catalog:",
     "@vitest/ui": "^4.0.18",
     "commitlint": "catalog:",
     "cspell": "^9.6.4",
@@ -63,6 +65,7 @@
     "verdaccio": "^6.2.5",
     "vite": "^7.3.1",
     "vitest": "catalog:",
+    "vitest-sonar-reporter": "catalog:",
     "yargs": "^18.0.0"
   },
   "packageManager": "pnpm@10.30.1",

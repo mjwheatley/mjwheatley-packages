@@ -75,7 +75,27 @@ jobs:
         run: pnpm exec nx affected -t typecheck lint build --batch --nxBail --parallel=4 --no-tui
 
       - name: Test
-        run: pnpm exec nx affected -t test --nxBail --parallel=4 --no-tui
+        run: |
+          pnpm exec nx affected -t test --nxBail --parallel=4 --no-tui
+          pnpm test:coverage:combine
+        env:
+          NODE_ENV: test
+
+      - name: Report coverage
+        uses: davelosert/vitest-coverage-report-action@5b6122e3a819a3be7b27fc961b7faafb3bf00e4d # v2.9.0
+        with:
+          json-summary-path: 'coverage/combined-coverage-summary.json'
+          json-final-path: 'coverage/combined-coverage-final.json'
+
+      # Upload the coverage and test results as artifacts
+      - name: Upload Combined Test Coverage Reports
+        uses: actions/upload-artifact@v6
+        with:
+          name: test-coverage-${{ github.run_id }}-${{ github.run_number }}
+          retention-days: 1
+          path: |
+            ./coverage/combined-lcov.info
+            ./coverage/combined-sonar-report.xml
 
       - name: Setup Git User
         uses: fregante/setup-git-user@v2
