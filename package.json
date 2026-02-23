@@ -4,6 +4,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
+    "clean": "nx run-many -t clean --no-tui",
     "build": "nx run-many -t build --no-tui",
     "typecheck": "nx run-many -t typecheck --no-tui",
     "format": "prettier --write .",
