@@ -35,6 +35,7 @@ jobs:
         uses: ./.github/actions/setup
         with:
           node-auth-token: ${{ secrets.GITHUB_TOKEN }}
+          two-phase-install: 'true'
 
       - name: Quality Checks
         uses: ./.github/actions/checks

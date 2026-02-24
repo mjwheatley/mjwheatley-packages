@@ -122,13 +122,14 @@ ci: ci-checks ci-build-and-test
 
 ### setup
 
-| Input            | Required | Default                       | Description                      |
-| ---------------- | -------- | ----------------------------- | -------------------------------- |
-| node-auth-token  | ✅       | —                             | Token for npm registry auth      |
-| set-shas         | ❌       | 'false'                       | Whether to run nx-set-shas       |
-| main-branch-name | ❌       | ''                            | Main branch name for nx-set-shas |
-| audit            | ❌       | 'true'                        | Whether to run pnpm audit        |
-| registry-url     | ❌       | 'https://npm.pkg.github.com/' | npm registry URL                 |
+| Input | Required | Default | Description |
+| --- | --- | --- | --- |
+| node-auth-token | ✅ | — | Token for npm registry auth |
+| set-shas | ❌ | 'false' | Whether to run nx-set-shas |
+| main-branch-name | ❌ | '' | Main branch name for nx-set-shas |
+| audit | ❌ | 'true' | Whether to run pnpm audit |
+| registry-url | ❌ | 'https://npm.pkg.github.com/' | npm registry URL |
+| two-phase-install | ❌ | 'false' | If true, does a two-phase install to ensure workspace bins are linked |
 
 ### checks
 

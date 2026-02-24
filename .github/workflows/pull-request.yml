@@ -25,12 +25,14 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+
       - name: Setup
         uses: ./.github/actions/setup
         with:
           node-auth-token: ${{ secrets.GITHUB_TOKEN }}
           set-shas: 'true'
           main-branch-name: ${{ github.base_ref }}
+          two-phase-install: 'true'
 
       - name: Quality Checks
         uses: ./.github/actions/checks
