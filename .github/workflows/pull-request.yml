@@ -21,11 +21,14 @@ jobs:
       run:
         working-directory: ${{ github.workspace }}
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - name: Setup
         uses: ./.github/actions/setup
         with:
           node-auth-token: ${{ secrets.GITHUB_TOKEN }}
-          checkout-ref: ${{ github.event.pull_request.head.sha }}
           set-shas: 'true'
           main-branch-name: ${{ github.base_ref }}
 

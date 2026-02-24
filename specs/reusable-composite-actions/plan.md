@@ -17,15 +17,13 @@ Create four reusable GitHub composite actions extracted from `pull-request.yml` 
 
 - [x] Implemented
 
-**Purpose**: Checkout code, set up pnpm + Node.js, install dependencies, and audit.
+**Purpose**: Set up pnpm + Node.js, install dependencies, and audit.
 
 **Inputs**:
 
 | Input | Required | Default | Description |
 | --- | --- | --- | --- |
 | `node-auth-token` | ✅ | — | Token for npm registry auth (e.g., `GITHUB_TOKEN`) |
-| `checkout-ref` | ❌ | `''` (uses triggering ref) | Git ref to checkout (e.g., PR head SHA) |
-| `fetch-depth` | ❌ | `'0'` | Git fetch depth |
 | `set-shas` | ❌ | `'false'` | Whether to run `nrwl/nx-set-shas` for affected commands |
 | `main-branch-name` | ❌ | `''` | Main branch name for `nx-set-shas` |
 | `audit` | ❌ | `'true'` | Whether to run `pnpm audit` |
@@ -33,17 +31,18 @@ Create four reusable GitHub composite actions extracted from `pull-request.yml` 
 
 **Steps**:
 
-1. `actions/checkout@v4` — with configurable `ref`, `token`, and `fetch-depth`
-2. `nrwl/nx-set-shas@v4` — conditional on `set-shas == 'true'`, uses `main-branch-name`
-3. `pnpm/action-setup@v4` — set up pnpm
-4. `actions/setup-node@v4` — with pnpm cache, `.nvmrc`, and configurable `registry-url`
-5. `pnpm install --frozen-lockfile` — with `NODE_AUTH_TOKEN` env
-6. `pnpm audit --audit-level=moderate --prod --ignore-registry-errors` — conditional on `audit == 'true'`
+1. `nrwl/nx-set-shas@v4` — conditional on `set-shas == 'true'`, uses `main-branch-name`
+2. `pnpm/action-setup@v4` — set up pnpm
+3. `actions/setup-node@v4` — with pnpm cache, `.nvmrc`, and configurable `registry-url`
+4. `pnpm install --frozen-lockfile` (with `NODE_AUTH_TOKEN`)
+5. `pnpm audit --audit-level=moderate --prod --ignore-registry-errors` — conditional on `audit == 'true'` (with `NODE_AUTH_TOKEN`)
 
 **Notes**:
 
-- The PR workflow uses `checkout-ref: ${{ github.event.pull_request.head.sha }}`, `set-shas: 'true'`, and `main-branch-name: ${{ github.base_ref }}`
-- The release workflow uses defaults (no special ref, no set-shas)
+- **actions/checkout@v4** must be the first step in the workflow, before using any local composite actions.
+- The PR workflow uses `set-shas: 'true'` and `main-branch-name: ${{ github.base_ref }}`.
+- The release workflow uses defaults (no set-shas).
+- Always provide `node-auth-token: ${{ secrets.GITHUB_TOKEN }}` to the setup action for private dependency access.
 
 ---
 
@@ -180,11 +179,15 @@ jobs:
   pull-request:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
       - name: Setup
         uses: ./.github/actions/setup
         with:
           node-auth-token: ${{ secrets.GITHUB_TOKEN }}
-          checkout-ref: ${{ github.event.pull_request.head.sha }}
           set-shas: 'true'
           main-branch-name: ${{ github.base_ref }}
 
@@ -223,6 +226,11 @@ jobs:
   release:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
       - name: Setup
         uses: ./.github/actions/setup
         with:

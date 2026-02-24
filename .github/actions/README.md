@@ -18,18 +18,20 @@ jobs:
   pull-request:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
       - name: Setup
         uses: mjwheatley/mjwheatley-packages/.github/actions/setup@main
         with:
           node-auth-token: ${{ secrets.GITHUB_TOKEN }}
-          checkout-ref: ${{ github.event.pull_request.head.sha }}
           set-shas: 'true'
           main-branch-name: ${{ github.base_ref }}
 
       - name: Quality Checks
         uses: mjwheatley/mjwheatley-packages/.github/actions/checks@main
-        with:
-          spellcheck-pattern: '"./{.github,packages}/**/*.{md,js,mjs,cjs,ts,mts,cts,tsx,json,yml}" "./*.{md,js,mjs,cjs,ts,mts,cts,tsx,json}"'
 
       - name: Build and Test
         uses: mjwheatley/mjwheatley-packages/.github/actions/build-and-test@main
@@ -123,8 +125,6 @@ ci: ci-checks ci-build-and-test
 | Input            | Required | Default                       | Description                      |
 | ---------------- | -------- | ----------------------------- | -------------------------------- |
 | node-auth-token  | ✅       | —                             | Token for npm registry auth      |
-| checkout-ref     | ❌       | ''                            | Git ref to checkout              |
-| fetch-depth      | ❌       | '0'                           | Git fetch depth                  |
 | set-shas         | ❌       | 'false'                       | Whether to run nx-set-shas       |
 | main-branch-name | ❌       | ''                            | Main branch name for nx-set-shas |
 | audit            | ❌       | 'true'                        | Whether to run pnpm audit        |
