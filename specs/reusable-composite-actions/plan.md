@@ -169,7 +169,7 @@ Create four reusable GitHub composite actions extracted from `pull-request.yml` 
 
 ## Task 5: Refactor `pull-request.yml` to Use Composite Actions
 
-- [ ] Implemented
+- [x] Implemented
 
 Replace the step-by-step implementation with composite action references.
 
@@ -190,8 +190,6 @@ jobs:
 
       - name: Quality Checks
         uses: ./.github/actions/checks
-        with:
-          spellcheck-pattern: '"./{.github,packages}/**/*.{md,js,mjs,cjs,ts,mts,cts,tsx,json,yml}" "./*.{md,js,mjs,cjs,ts,mts,cts,tsx,json}"'
 
       - name: Build and Test
         uses: ./.github/actions/build-and-test
@@ -216,7 +214,7 @@ jobs:
 
 ## Task 6: Refactor `release.yml` to Use Composite Actions
 
-- [ ] Implemented
+- [x] Implemented
 
 **Target structure**:
 
@@ -232,8 +230,6 @@ jobs:
 
       - name: Quality Checks
         uses: ./.github/actions/checks
-        with:
-          spellcheck-pattern: '"./{.github,packages}/**/*.{md,js,mjs,cjs,ts,mts,cts,tsx,json,yml}" "./*.{md,js,mjs,cjs,ts,mts,cts,tsx,json}"'
 
       - name: Build and Test
         uses: ./.github/actions/build-and-test
