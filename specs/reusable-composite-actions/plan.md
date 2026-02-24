@@ -291,7 +291,7 @@ Document the composite actions for external consumers:
 
 ## Task 8: Update `nx.json` Shared Globals
 
-- [ ] Implemented
+- [x] Implemented
 
 The `sharedGlobals` namedInput currently references the workflow files. Add the composite action files so that changes to them invalidate the Nx cache:
 
