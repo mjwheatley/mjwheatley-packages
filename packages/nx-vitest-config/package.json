@@ -1,7 +1,6 @@
 {
   "name": "@mjwheatley/nx-vitest-config",
   "version": "0.0.0",
-  "private": true,
   "type": "module",
   "license": "MIT",
   "repository": {
@@ -10,7 +9,7 @@
     "directory": "packages/nx-vitest-config"
   },
   "bin": {
-    "combine-coverage-reports": "./dist/cli.js"
+    "combine-coverage-reports": "./dist/combine-coverage-reports-cli.js"
   },
   "keywords": [
     "nx",
