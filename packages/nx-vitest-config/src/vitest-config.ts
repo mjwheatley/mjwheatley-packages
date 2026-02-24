@@ -49,7 +49,9 @@ export const getVitestCoverageConfig = ({
   enabled: true,
   reportOnFailure: true,
   reporter: getVitestCoverageReporters(),
-  include: [isLib ? 'src/**/*' : '{packages,stacks}/**/*'],
+  include: [
+    isLib ? 'src/**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}' : '{packages,stacks}/**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}',
+  ],
 });
 
 export const getCommonVitestPlugins = (): CustomViteUserConfig['plugins'] => [
