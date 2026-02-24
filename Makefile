@@ -1,4 +1,4 @@
-.PHONY: instructions install audit reset sync test build startover clean rm-coverage rm-dist rm-node-modules ci
+.PHONY: instructions install audit reset sync test build startover clean rm-coverage rm-dist rm-node-modules ci ci-checks ci-build-and-test
 
 instructions:
 	-@ echo "Available commands:"
@@ -56,14 +56,16 @@ rm-node-modules:
 	-@ rm -rf ./node_modules ./packages/*/node_modules
 	@echo "node_modules folders have been removed"
 
-ci:
-	-@ make audit
+ci-checks:
 	pnpm exec nx sync:check
 	pnpm check:circular
 	pnpm secretlint
 	pnpm spellcheck
 	pnpm format:check
-	pnpm typecheck
-	pnpm lint
-	pnpm build
-	pnpm test
+
+ci-build-and-test:
+	pnpm exec nx run-many -t typecheck lint build --batch --nxBail --parallel=4 --no-tui
+	pnpm test:all
+	pnpm test:coverage:combine
+
+ci: ci-checks ci-build-and-test
