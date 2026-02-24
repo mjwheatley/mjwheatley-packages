@@ -83,7 +83,7 @@ Create four reusable GitHub composite actions extracted from `pull-request.yml` 
 
 ## Task 3: Create `.github/actions/build-and-test/action.yml`
 
-- [ ] Implemented
+- [x] Implemented
 
 **Purpose**: Run typecheck, lint, build, test, combine coverage, report coverage, and upload artifacts.
 
