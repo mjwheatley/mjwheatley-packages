@@ -1,0 +1,68 @@
+name: 'Setup'
+description: 'Checkout, setup pnpm + Node.js, install dependencies, and audit'
+
+inputs:
+  node-auth-token:
+    description: 'Token for authenticating with the npm registry (e.g., GITHUB_TOKEN for GitHub Packages)'
+    required: true
+  checkout-ref:
+    description: 'Git ref to checkout (e.g., github.event.pull_request.head.sha for PRs). Defaults to the triggering ref.'
+    required: false
+    default: ''
+  fetch-depth:
+    description: 'Number of commits to fetch. Use 0 for full history.'
+    required: false
+    default: '0'
+  set-shas:
+    description: 'Whether to run nrwl/nx-set-shas to derive base/head SHAs for affected commands'
+    required: false
+    default: 'false'
+  main-branch-name:
+    description: 'Main branch name for nx-set-shas (only used when set-shas is true)'
+    required: false
+    default: ''
+  audit:
+    description: 'Whether to run pnpm audit'
+    required: false
+    default: 'true'
+  registry-url:
+    description: 'npm registry URL for actions/setup-node'
+    required: false
+    default: 'https://npm.pkg.github.com/'
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      with:
+        ref: ${{ inputs.checkout-ref || github.ref }}
+        token: ${{ inputs.node-auth-token }}
+        fetch-depth: ${{ inputs.fetch-depth }}
+
+    - name: Derive appropriate SHAs for base and head for `nx affected` commands
+      if: inputs.set-shas == 'true'
+      uses: nrwl/nx-set-shas@v4
+      with:
+        main-branch-name: ${{ inputs.main-branch-name }}
+
+    - name: Setup pnpm
+      uses: pnpm/action-setup@v4
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        cache: 'pnpm'
+        node-version-file: '.nvmrc'
+        registry-url: ${{ inputs.registry-url }}
+
+    - name: Install dependencies
+      shell: bash
+      run: pnpm install --frozen-lockfile
+      env:
+        NODE_AUTH_TOKEN: ${{ inputs.node-auth-token }}
+
+    - name: Audit dependencies
+      if: inputs.audit == 'true'
+      shell: bash
+      run: pnpm audit --audit-level=moderate --prod --ignore-registry-errors

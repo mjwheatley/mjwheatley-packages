@@ -15,7 +15,7 @@ Create four reusable GitHub composite actions extracted from `pull-request.yml` 
 
 ## Task 1: Create `.github/actions/setup/action.yml`
 
-- [ ] Implemented
+- [x] Implemented
 
 **Purpose**: Checkout code, set up pnpm + Node.js, install dependencies, and audit.
 
