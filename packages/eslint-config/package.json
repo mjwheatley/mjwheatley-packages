@@ -1,0 +1,40 @@
+{
+  "name": "@mjwheatley/eslint-config",
+  "version": "0.0.0",
+  "description": "Shareable ESLint flat config",
+  "type": "module",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mjwheatley/mjwheatley-packages.git",
+    "directory": "packages/eslint-config"
+  },
+  "keywords": [
+    "eslint",
+    "eslint-config",
+    "eslint-flat-config"
+  ],
+  "sideEffects": false,
+  "files": [
+    "dist",
+    "!**/*.tsbuildinfo"
+  ],
+  "main": "./dist/eslint-config.js",
+  "types": "./dist/eslint-config.d.ts",
+  "dependencies": {
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-import-resolver-typescript": "^4.4.3"
+  },
+  "devDependencies": {
+    "@mjwheatley/nx-vitest-config": "workspace:*",
+    "vitest": "catalog:"
+  },
+  "peerDependencies": {
+    "@eslint/js": "^9.39.3",
+    "@nx/eslint-plugin": "^22.5.1",
+    "eslint": ">=9",
+    "eslint-plugin-import-x": "^4.12.2",
+    "eslint-plugin-unicorn": "^56.0.1",
+    "typescript-eslint": "^8.56.0"
+  }
+}

@@ -1,5 +1,5 @@
-import { join } from 'node:path';
 import { writeFile } from 'node:fs/promises';
+import { join } from 'node:path';
 
 import type { NxReleaseChangelogResult } from 'nx/src/command-line/release/changelog.js';
 

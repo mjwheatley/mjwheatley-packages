@@ -13,6 +13,9 @@
       "path": "./packages/cspell-dictionary"
     },
     {
+      "path": "./packages/eslint-config"
+    },
+    {
       "path": "./packages/nx-release-cli"
     },
     {

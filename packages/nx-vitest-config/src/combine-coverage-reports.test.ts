@@ -36,13 +36,13 @@ const mockWriteFileSync = vi.mocked(writeFileSync);
 const mockParseStringPromise = vi.mocked(parseStringPromise);
 
 // eslint-disable-next-line @typescript-eslint/no-empty-function
-const noop = () => {};
+const noop = (): void => {};
 
 /**
  * Helper to extract the content argument from a writeFileSync call matching a given filename substring.
  */
 const getWriteCallContent = (fileNameSubstring: string): string => {
-  const call = mockWriteFileSync.mock.calls.find((c) => String(c[0]).includes(fileNameSubstring));
+  const call = mockWriteFileSync.mock.calls.find((call) => String(call[0]).includes(fileNameSubstring));
 
   expect(call).toBeDefined();
 
@@ -368,6 +368,7 @@ describe('combine-coverage-reports', () => {
         const pathStr = String(path);
 
         if (pathStr.includes('pkg1')) return coverageSummary1;
+
         if (pathStr.includes('pkg2')) return coverageSummary2;
 
         return '';
@@ -437,6 +438,7 @@ describe('combine-coverage-reports', () => {
         const pathStr = String(path);
 
         if (pathStr.includes('pkg1')) return coverageSummary1;
+
         if (pathStr.includes('pkg2')) return coverageSummary2;
 
         return '';
