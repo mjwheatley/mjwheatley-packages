@@ -12,7 +12,7 @@
     "lint": "nx run-many -t lint --no-tui",
     "prepare": "husky || true",
     "secretlint": "secretlint .  --maskSecrets",
-    "spellcheck": "cspell --no-progress \"./{.github,packages}/**/*.{md,js,mjs,cjs,ts,mts,cts,tsx,json,yml}\" \"./*.{md,js,mjs,cjs,ts,mts,cts,tsx,json}\"",
+    "spellcheck": "cspell --no-progress .",
     "test": "vitest --run",
     "test:all": "nx run-many -t test --nxBail --parallel=4 --silent=passed-only --no-tui",
     "test:coverage:combine": "pnpm dlx tsx packages/nx-vitest-config/src/combine-coverage-reports-cli.ts",
