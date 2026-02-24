@@ -134,7 +134,7 @@ Create four reusable GitHub composite actions extracted from `pull-request.yml` 
 
 ## Task 4: Create `.github/actions/release/action.yml`
 
-- [ ] Implemented
+- [x] Implemented
 
 **Purpose**: Set up git user and run the nx-release CLI.
 

@@ -1,0 +1,50 @@
+name: 'Release'
+description: 'Setup git user and run the nx-release CLI.'
+
+inputs:
+  dry-run:
+    description: 'Whether to perform a dry run'
+    required: false
+    default: 'true'
+  github-token:
+    description: 'GITHUB_TOKEN for creating releases'
+    required: true
+  node-auth-token:
+    description: 'Token for npm registry auth'
+    required: true
+  npm-token:
+    description: 'NPM token for publishing to npm registry'
+    required: false
+    default: ''
+  first-release:
+    description: 'Whether this is the first release'
+    required: false
+    default: 'false'
+  verbose:
+    description: 'Enable verbose logging'
+    required: false
+    default: 'false'
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Setup Git User
+      uses: fregante/setup-git-user@v2
+
+    - name: Release
+      shell: bash
+      env:
+        GITHUB_TOKEN: ${{ inputs.github-token }}
+        NODE_AUTH_TOKEN: ${{ inputs.node-auth-token }}
+        NPM_TOKEN: ${{ inputs.npm-token }}
+        NPM_CONFIG_PROVENANCE: ${{ inputs.npm-token && 'true' || 'false' }}
+      run: |
+        CMD="pnpm exec nx-release --dry-run=${{ inputs.dry-run }}"
+        if [ "${{ inputs.first-release }}" = "true" ]; then
+          CMD="$CMD --first-release"
+        fi
+        if [ "${{ inputs.verbose }}" = "true" ]; then
+          CMD="$CMD --verbose"
+        fi
+        echo "Running: $CMD"
+        eval $CMD
