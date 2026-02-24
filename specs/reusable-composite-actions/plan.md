@@ -310,18 +310,6 @@ The `sharedGlobals` namedInput currently references the workflow files. Add the 
 
 ---
 
-## Task 9: Add `specs/` to Ignore Files
-
-- [ ] Implemented
-
-Add `specs/` to ignore patterns where appropriate:
-
-- `cspell.json` `ignorePaths` — no need to spellcheck spec files (or do spellcheck them for quality)
-- `.secretlintrc` — likely fine as-is
-- Consider adding to `.gitignore` if specs should not be committed (likely they should be committed)
-
----
-
 ## Summary: File Changes
 
 | File                                        | Action                                           |
