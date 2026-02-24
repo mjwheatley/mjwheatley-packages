@@ -49,7 +49,7 @@ Create four reusable GitHub composite actions extracted from `pull-request.yml` 
 
 ## Task 2: Create `.github/actions/checks/action.yml`
 
-- [ ] Implemented
+- [x] Implemented
 
 **Purpose**: Run quality gate checks that are identical between PR and release flows.
 
