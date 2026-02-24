@@ -253,7 +253,7 @@ jobs:
 
 ## Task 7: Create `.github/actions/README.md`
 
-- [ ] Implemented
+- [x] Implemented
 
 Document the composite actions for external consumers:
 
