@@ -61,6 +61,9 @@ importers:
       '@mjwheatley/eslint-config':
         specifier: workspace:*
         version: link:packages/eslint-config
+      '@mjwheatley/nx-release-cli':
+        specifier: workspace:*
+        version: link:packages/nx-release-cli
       '@mjwheatley/nx-vitest-config':
         specifier: workspace:*
         version: link:packages/nx-vitest-config

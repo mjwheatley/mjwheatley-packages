@@ -26,6 +26,7 @@
     "@mjwheatley/commitlint-config": "workspace:*",
     "@mjwheatley/cspell-dictionary": "workspace:*",
     "@mjwheatley/eslint-config": "workspace:*",
+    "@mjwheatley/nx-release-cli": "workspace:*",
     "@mjwheatley/nx-vitest-config": "workspace:*",
     "@mjwheatley/prettier-config": "workspace:*",
     "@mjwheatley/secretlint-config": "workspace:*",
