@@ -11,7 +11,11 @@
     ],
     "sharedGlobals": [
       "{workspaceRoot}/.github/workflows/pull-request.yml",
-      "{workspaceRoot}/.github/workflows/release.yml"
+      "{workspaceRoot}/.github/workflows/release.yml",
+      "{workspaceRoot}/.github/actions/setup/action.yml",
+      "{workspaceRoot}/.github/actions/checks/action.yml",
+      "{workspaceRoot}/.github/actions/build-and-test/action.yml",
+      "{workspaceRoot}/.github/actions/release/action.yml"
     ]
   },
   "targetDefaults": {

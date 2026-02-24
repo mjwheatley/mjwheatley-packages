@@ -1,0 +1,77 @@
+name: 'Build and Test'
+description: 'Typecheck, lint, build, test, combine coverage, report coverage, and upload artifacts.'
+
+inputs:
+  mode:
+    description: "'affected' for PR (nx affected), 'all' for release (nx run-many)"
+    required: false
+    default: 'all'
+  parallel:
+    description: 'Parallelism for nx tasks'
+    required: false
+    default: '4'
+  coverage-report:
+    description: 'Whether to run vitest-coverage-report-action (PR only)'
+    required: false
+    default: 'false'
+  upload-artifacts:
+    description: 'Whether to upload coverage artifacts'
+    required: false
+    default: 'true'
+  artifact-name-suffix:
+    description: 'Suffix for artifact name (e.g., github.run_id-github.run_number)'
+    required: false
+    default: ''
+  print-affected:
+    description: 'Whether to print affected projects (PR only)'
+    required: false
+    default: 'false'
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Print affected projects
+      if: inputs.print-affected == 'true'
+      shell: bash
+      run: pnpm exec nx show projects --affected --json
+
+    - name: Typecheck, lint, build
+      shell: bash
+      run: |
+        if [ "${{ inputs.mode }}" = "affected" ]; then
+          pnpm exec nx affected -t typecheck lint build --batch --nxBail --parallel=${{ inputs.parallel }} --no-tui
+        else
+          pnpm exec nx run-many -t typecheck lint build --batch --nxBail --parallel=${{ inputs.parallel }} --no-tui
+        fi
+
+    - name: Test
+      shell: bash
+      env:
+        NODE_ENV: test
+      run: |
+        if [ "${{ inputs.mode }}" = "affected" ]; then
+          pnpm exec nx affected -t test --nxBail --parallel=${{ inputs.parallel }} --silent=passed-only --no-tui
+        else
+          pnpm exec nx run-many -t test --nxBail --parallel=${{ inputs.parallel }} --silent=passed-only --no-tui
+        fi
+
+    - name: Combine coverage reports
+      shell: bash
+      run: pnpm exec combine-coverage-reports
+
+    - name: Report coverage
+      if: inputs.coverage-report == 'true'
+      uses: davelosert/vitest-coverage-report-action@5b6122e3a819a3be7b27fc961b7faafb3bf00e4d
+      with:
+        json-summary-path: 'coverage/combined-coverage-summary.json'
+        json-final-path: 'coverage/combined-coverage-final.json'
+
+    - name: Upload Combined Test Coverage Reports
+      if: inputs.upload-artifacts == 'true'
+      uses: actions/upload-artifact@v6
+      with:
+        name: test-coverage-${{ inputs.artifact-name-suffix }}
+        retention-days: 1
+        path: |
+          ./coverage/combined-lcov.info
+          ./coverage/combined-sonar-report.xml

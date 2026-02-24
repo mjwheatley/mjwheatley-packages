@@ -1,0 +1,60 @@
+name: 'Quality Checks'
+description: 'Run quality gate checks: nx sync, circular dependencies, secrets, spelling, and formatting'
+
+inputs:
+  skip-sync-check:
+    description: 'Skip nx sync:check'
+    required: false
+    default: 'false'
+  skip-circular-check:
+    description: 'Skip circular dependency check'
+    required: false
+    default: 'false'
+  skip-secretlint:
+    description: 'Skip secret scanning'
+    required: false
+    default: 'false'
+  skip-spellcheck:
+    description: 'Skip spell checking'
+    required: false
+    default: 'false'
+  skip-format-check:
+    description: 'Skip format checking'
+    required: false
+    default: 'false'
+  spellcheck-pattern:
+    description: 'Glob pattern for cspell (defaults to all files)'
+    required: false
+    default: '.'
+  circular-check-extensions:
+    description: 'File extensions for madge circular dependency check'
+    required: false
+    default: 'ts,js,tsx'
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Nx sync check
+      if: inputs.skip-sync-check != 'true'
+      shell: bash
+      run: pnpm exec nx sync:check
+
+    - name: Check for circular dependencies
+      if: inputs.skip-circular-check != 'true'
+      shell: bash
+      run: pnpm exec madge --circular --extensions ${{ inputs.circular-check-extensions }} .
+
+    - name: Check for secrets
+      if: inputs.skip-secretlint != 'true'
+      shell: bash
+      run: pnpm exec secretlint . --maskSecrets
+
+    - name: Check spelling
+      if: inputs.skip-spellcheck != 'true'
+      shell: bash
+      run: pnpm exec cspell --no-progress ${{ inputs.spellcheck-pattern }}
+
+    - name: Check formatting
+      if: inputs.skip-format-check != 'true'
+      shell: bash
+      run: pnpm exec nx format:check --all

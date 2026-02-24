@@ -20,89 +20,35 @@ jobs:
     defaults:
       run:
         working-directory: ${{ github.workspace }}
-
     steps:
-      - name: Checkout [Pull Request]
+      - name: Checkout
         uses: actions/checkout@v4
         with:
-          ref: ${{ github.event.pull_request.head.sha }}
-          token: ${{ secrets.GITHUB_TOKEN }}
           fetch-depth: 0
 
-      - name: Derive appropriate SHAs for base and head for `nx affected` commands
-        uses: nrwl/nx-set-shas@v4
+      - name: Setup
+        uses: ./.github/actions/setup
         with:
+          node-auth-token: ${{ secrets.GITHUB_TOKEN }}
+          set-shas: 'true'
           main-branch-name: ${{ github.base_ref }}
+          two-phase-install: 'true'
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v4
+      - name: Quality Checks
+        uses: ./.github/actions/checks
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - name: Build and Test
+        uses: ./.github/actions/build-and-test
         with:
-          cache: 'pnpm'
-          node-version-file: '.nvmrc'
-          registry-url: https://npm.pkg.github.com/
-
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Audit dependencies
-        run: pnpm audit --audit-level=moderate --prod --ignore-registry-errors
-
-      - name: Print affected projects
-        id: print-affected
-        run: pnpm exec nx show projects --affected --json
-
-      - name: Nx sync check
-        run: pnpm exec nx sync:check
-
-      - name: Check for circular dependencies
-        run: pnpm check:circular
-
-      - name: Check for secrets
-        run: pnpm secretlint
-
-      - name: Check spelling
-        run: pnpm spellcheck
-
-      - name: Format
-        run: pnpm format:check
-
-      - name: Typecheck, lint, build
-        run: pnpm exec nx affected -t typecheck lint build --batch --nxBail --parallel=4 --no-tui
-
-      - name: Test
-        run: |
-          pnpm exec nx affected -t test --nxBail --parallel=4 --no-tui
-          pnpm test:coverage:combine
-        env:
-          NODE_ENV: test
-
-      - name: Report coverage
-        uses: davelosert/vitest-coverage-report-action@5b6122e3a819a3be7b27fc961b7faafb3bf00e4d # v2.9.0
-        with:
-          json-summary-path: 'coverage/combined-coverage-summary.json'
-          json-final-path: 'coverage/combined-coverage-final.json'
-
-      # Upload the coverage and test results as artifacts
-      - name: Upload Combined Test Coverage Reports
-        uses: actions/upload-artifact@v6
-        with:
-          name: test-coverage-${{ github.run_id }}-${{ github.run_number }}
-          retention-days: 1
-          path: |
-            ./coverage/combined-lcov.info
-            ./coverage/combined-sonar-report.xml
-
-      - name: Setup Git User
-        uses: fregante/setup-git-user@v2
+          mode: 'affected'
+          print-affected: 'true'
+          coverage-report: 'true'
+          artifact-name-suffix: ${{ github.run_id }}-${{ github.run_number }}
 
       - name: Release [Dry Run]
-        if: ${{ success() }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: pnpm dlx tsx packages/nx-release-cli/src/cli.ts --dry-run=true
+        if: success()
+        uses: ./.github/actions/release
+        with:
+          dry-run: 'true'
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          node-auth-token: ${{ secrets.GITHUB_TOKEN }}
