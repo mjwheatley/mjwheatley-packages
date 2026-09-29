@@ -43,3 +43,9 @@ Thumbs.db
 .eslintcache
 .nx-release-output.json
 *.tsbuildinfo
+
+.nx/polygraph
+.claude/worktrees
+.claude/settings.local.json
+.nx/self-healing
+.nx/migrate-runs

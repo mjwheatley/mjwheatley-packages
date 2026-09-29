@@ -126,7 +126,7 @@ describe('combine-coverage-reports', () => {
     });
 
     it('should return an empty array for an empty directory', () => {
-      mockReaddirSync.mockReturnValue([] as unknown as ReturnType<typeof readdirSync>);
+      mockReaddirSync.mockReturnValue([]);
 
       const result = findFiles('/root', 'any-file.json');
 
@@ -283,7 +283,7 @@ describe('combine-coverage-reports', () => {
     it('should create the coverage directory if it does not exist', async () => {
       mockExistsSync.mockReturnValue(false);
       mockMkdirSync.mockReturnValue(undefined);
-      mockReaddirSync.mockReturnValue([] as unknown as ReturnType<typeof readdirSync>);
+      mockReaddirSync.mockReturnValue([]);
 
       await combineCoverageReports();
 
@@ -292,7 +292,7 @@ describe('combine-coverage-reports', () => {
 
     it('should not create the coverage directory if it already exists', async () => {
       mockExistsSync.mockReturnValue(true);
-      mockReaddirSync.mockReturnValue([] as unknown as ReturnType<typeof readdirSync>);
+      mockReaddirSync.mockReturnValue([]);
 
       await combineCoverageReports();
 
@@ -301,7 +301,7 @@ describe('combine-coverage-reports', () => {
 
     it('should combine all coverage report types and write output files', async () => {
       mockExistsSync.mockReturnValue(true);
-      mockReaddirSync.mockReturnValue([] as unknown as ReturnType<typeof readdirSync>);
+      mockReaddirSync.mockReturnValue([]);
 
       await combineCoverageReports();
 
@@ -344,7 +344,7 @@ describe('combine-coverage-reports', () => {
       });
 
       // For sonar-report.xml findFiles
-      mockReaddirSync.mockReturnValueOnce([] as unknown as ReturnType<typeof readdirSync>);
+      mockReaddirSync.mockReturnValueOnce([]);
 
       // For coverage-summary.json findFiles
       mockReaddirSync.mockReturnValueOnce([
@@ -359,10 +359,10 @@ describe('combine-coverage-reports', () => {
       ] as unknown as ReturnType<typeof readdirSync>);
 
       // For coverage-final.json findFiles
-      mockReaddirSync.mockReturnValueOnce([] as unknown as ReturnType<typeof readdirSync>);
+      mockReaddirSync.mockReturnValueOnce([]);
 
       // For lcov.info findFiles
-      mockReaddirSync.mockReturnValueOnce([] as unknown as ReturnType<typeof readdirSync>);
+      mockReaddirSync.mockReturnValueOnce([]);
 
       mockReadFileSync.mockImplementation((path: unknown) => {
         const pathStr = String(path);
@@ -415,7 +415,7 @@ describe('combine-coverage-reports', () => {
       });
 
       // sonar
-      mockReaddirSync.mockReturnValueOnce([] as unknown as ReturnType<typeof readdirSync>);
+      mockReaddirSync.mockReturnValueOnce([]);
 
       // coverage-summary
       mockReaddirSync.mockReturnValueOnce([
@@ -430,9 +430,9 @@ describe('combine-coverage-reports', () => {
       ] as unknown as ReturnType<typeof readdirSync>);
 
       // coverage-final
-      mockReaddirSync.mockReturnValueOnce([] as unknown as ReturnType<typeof readdirSync>);
+      mockReaddirSync.mockReturnValueOnce([]);
       // lcov
-      mockReaddirSync.mockReturnValueOnce([] as unknown as ReturnType<typeof readdirSync>);
+      mockReaddirSync.mockReturnValueOnce([]);
 
       mockReadFileSync.mockImplementation((path: unknown) => {
         const pathStr = String(path);
@@ -472,9 +472,9 @@ describe('combine-coverage-reports', () => {
       });
 
       // sonar
-      mockReaddirSync.mockReturnValueOnce([] as unknown as ReturnType<typeof readdirSync>);
+      mockReaddirSync.mockReturnValueOnce([]);
       // summary
-      mockReaddirSync.mockReturnValueOnce([] as unknown as ReturnType<typeof readdirSync>);
+      mockReaddirSync.mockReturnValueOnce([]);
 
       // coverage-final
       mockReaddirSync.mockReturnValueOnce([
@@ -485,7 +485,7 @@ describe('combine-coverage-reports', () => {
       ] as unknown as ReturnType<typeof readdirSync>);
 
       // lcov
-      mockReaddirSync.mockReturnValueOnce([] as unknown as ReturnType<typeof readdirSync>);
+      mockReaddirSync.mockReturnValueOnce([]);
 
       mockReadFileSync.mockImplementation(() => coverageFinal1);
 
@@ -517,9 +517,9 @@ describe('combine-coverage-reports', () => {
       });
 
       // sonar
-      mockReaddirSync.mockReturnValueOnce([] as unknown as ReturnType<typeof readdirSync>);
+      mockReaddirSync.mockReturnValueOnce([]);
       // summary
-      mockReaddirSync.mockReturnValueOnce([] as unknown as ReturnType<typeof readdirSync>);
+      mockReaddirSync.mockReturnValueOnce([]);
       // coverage-final
       mockReaddirSync.mockReturnValueOnce([
         { name: 'pkg1', isDirectory: () => true, isFile: () => false },
@@ -528,7 +528,7 @@ describe('combine-coverage-reports', () => {
         { name: 'coverage-final.json', isDirectory: () => false, isFile: () => true },
       ] as unknown as ReturnType<typeof readdirSync>);
       // lcov
-      mockReaddirSync.mockReturnValueOnce([] as unknown as ReturnType<typeof readdirSync>);
+      mockReaddirSync.mockReturnValueOnce([]);
 
       mockReadFileSync.mockImplementation(() => coverageFinal);
 
@@ -548,11 +548,11 @@ describe('combine-coverage-reports', () => {
       const lcovContent = 'SF:../../packages/lib1/src/index.ts\nDA:1,1\nend_of_record\n';
 
       // sonar
-      mockReaddirSync.mockReturnValueOnce([] as unknown as ReturnType<typeof readdirSync>);
+      mockReaddirSync.mockReturnValueOnce([]);
       // summary
-      mockReaddirSync.mockReturnValueOnce([] as unknown as ReturnType<typeof readdirSync>);
+      mockReaddirSync.mockReturnValueOnce([]);
       // final
-      mockReaddirSync.mockReturnValueOnce([] as unknown as ReturnType<typeof readdirSync>);
+      mockReaddirSync.mockReturnValueOnce([]);
 
       // lcov.info
       mockReaddirSync.mockReturnValueOnce([
@@ -582,11 +582,11 @@ describe('combine-coverage-reports', () => {
       const lcov2 = 'SF:src/b.ts\nDA:2,1\nend_of_record\n';
 
       // sonar
-      mockReaddirSync.mockReturnValueOnce([] as unknown as ReturnType<typeof readdirSync>);
+      mockReaddirSync.mockReturnValueOnce([]);
       // summary
-      mockReaddirSync.mockReturnValueOnce([] as unknown as ReturnType<typeof readdirSync>);
+      mockReaddirSync.mockReturnValueOnce([]);
       // final
-      mockReaddirSync.mockReturnValueOnce([] as unknown as ReturnType<typeof readdirSync>);
+      mockReaddirSync.mockReturnValueOnce([]);
 
       // lcov
       mockReaddirSync.mockReturnValueOnce([

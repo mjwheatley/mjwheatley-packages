@@ -80,7 +80,6 @@
   ],
   "release": {
     "projects": ["packages/*"],
-    "releaseTagPattern": "{projectName}/v{version}",
     "projectsRelationship": "independent",
     "conventionalCommits": {
       "types": {
@@ -167,6 +166,10 @@
         "file": false,
         "createRelease": "github"
       }
+    },
+    "releaseTag": {
+      "pattern": "{projectName}/v{version}"
     }
-  }
+  },
+  "analytics": false
 }
