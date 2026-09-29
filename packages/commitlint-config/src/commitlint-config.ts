@@ -1,26 +1,26 @@
-import type { UserConfig } from '@commitlint/types';
+import { RuleConfigSeverity, type UserConfig } from '@commitlint/types';
 
 const config: UserConfig = {
   extends: ['@commitlint/config-conventional'],
   plugins: ['commitlint-plugin-cspell'],
   rules: {
-    'cspell/type': [2, 'always'],
-    'cspell/scope': [2, 'always'],
-    'cspell/subject': [2, 'always'],
-    'cspell/body': [2, 'always'],
-    'cspell/footer': [2, 'always'],
-    'header-max-length': [2, 'always', 100],
-    'body-max-line-length': [2, 'always', 250],
+    'cspell/type': [RuleConfigSeverity.Error, 'always'],
+    'cspell/scope': [RuleConfigSeverity.Error, 'always'],
+    'cspell/subject': [RuleConfigSeverity.Error, 'always'],
+    'cspell/body': [RuleConfigSeverity.Error, 'always'],
+    'cspell/footer': [RuleConfigSeverity.Error, 'always'],
+    'header-max-length': [RuleConfigSeverity.Error, 'always', 100],
+    'body-max-line-length': [RuleConfigSeverity.Error, 'always', 250],
     // This ensures that the scope is always present and follows the correct format.
-    'scope-case': [2, 'always', ['lower-case', 'upper-case']],
+    'scope-case': [RuleConfigSeverity.Error, 'always', ['lower-case', 'upper-case']],
     // This ensures that the subject is not empty and starts with a lowercase letter.
-    'subject-empty': [2, 'never'],
-    'subject-case': [2, 'never', ['sentence-case', 'start-case', 'pascal-case', 'upper-case']],
+    'subject-empty': [RuleConfigSeverity.Error, 'never'],
+    'subject-case': [RuleConfigSeverity.Error, 'never', ['sentence-case', 'start-case', 'pascal-case', 'upper-case']],
     // This rule ensures that the type is one of the conventional commit types and is in lower-case.
-    'type-case': [2, 'always', 'lower-case'],
-    'type-empty': [2, 'never'],
+    'type-case': [RuleConfigSeverity.Error, 'always', 'lower-case'],
+    'type-empty': [RuleConfigSeverity.Error, 'never'],
     'type-enum': [
-      2,
+      RuleConfigSeverity.Error,
       'always',
       [
         'feat', // New feature
